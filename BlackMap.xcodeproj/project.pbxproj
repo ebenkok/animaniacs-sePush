@@ -19,6 +19,7 @@
 		F6396A0A28F7E778003F5757 /* BlackMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6396A0928F7E778003F5757 /* BlackMapUITestsLaunchTests.swift */; };
 		F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */; };
 		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
+		F6CA9DD028F84AA9003ECD03 /* OutageMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* OutageMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		F6396A0928F7E778003F5757 /* BlackMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenProviderImplementation.swift; sourceTree = "<group>"; };
 		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		F6CA9DCF28F84AA9003ECD03 /* OutageMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutageMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		F63969EB28F7E776003F5757 /* BlackMap */ = {
 			isa = PBXGroup;
 			children = (
+				F6CA9DCE28F84A99003ECD03 /* Views */,
 				F6CA9DCB28F840FD003ECD03 /* ViewModel */,
 				F6CA9DC828F82CC9003ECD03 /* Providers */,
 				F63969EC28F7E776003F5757 /* BlackMapApp.swift */,
@@ -187,6 +190,14 @@
 				F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6CA9DCE28F84A99003ECD03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F6CA9DCF28F84AA9003ECD03 /* OutageMapView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,6 +406,7 @@
 				F63969EF28F7E776003F5757 /* ContentView.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
+				F6CA9DD028F84AA9003ECD03 /* OutageMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +597,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BlackMap/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

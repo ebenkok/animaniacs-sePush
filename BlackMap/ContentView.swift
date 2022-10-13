@@ -11,21 +11,57 @@ import shared
 struct ContentView: View {
     
     let statusVM: StatusViewModel
+    @State private var isAnimating: Bool = false
+    @State private var isShowingDetailView = false
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-        
-        Button("Get Status") {
-            Task {
-                await statusVM.getStatus()
+        ZStack {
+            NavigationView {
+                ZStack {
+                    VStack(spacing: 5) {
+                        NavigationLink(destination: OutageMapView(), isActive: $isShowingDetailView) { EmptyView() }
+                        
+                        Button("Show Map") {
+                            isShowingDetailView = true
+                        }
+                        
+                        .fontWeight(.medium)
+                        
+                        Button("Get Status") {
+                            Task {
+                                await statusVM.getStatus()
+                            }
+                        }.foregroundColor(.red)
+                    }
+                    Circle()
+                        .stroke(.white.opacity(0.2), lineWidth: 40)
+                        .frame(width: 260, height: 260, alignment: .center)
+                    Circle()
+                        .stroke(.white.opacity(0.2), lineWidth: 80)
+                        .frame(width: 260, height: 260, alignment: .center)
+                }
+                .blur(radius: isAnimating ? 0 : 10)
+                .opacity(isAnimating ? 1 : 0)
+                .scaleEffect(isAnimating ? 1 : 0)
+                .animation(.easeOut(duration: 1), value: isAnimating)
+                .onAppear {
+                    isAnimating = true
+                    
+                    
+                }
+                
+                
             }
+            .navigationTitle("Navigation")
         }
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
