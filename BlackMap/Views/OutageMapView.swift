@@ -8,86 +8,32 @@
 import SwiftUI
 import MapKit
 
-struct ContainerView: View {
-    
+struct OutageMapView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
     // @State var tracking: MapUserTrackingMode= = .follow
     @State var manager = CLLocationManager()
     @State var managerDelegate = locationDelegate()
     @State var mapDelegate = BlackMapDelegate()
+
     
     var body: some View {
         VStack {
-            OutageMapView()
+            Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow), annotationItems: managerDelegate.pins) { pin in
+                MapPin(coordinate: pin.location.coordinate, tint: .green)
+            }
         }.edgesIgnoringSafeArea(.all)
             .onAppear {
                 
-                //manager.delegate = managerDelegate
+                manager.delegate = managerDelegate
                 manager.requestWhenInUseAuthorization()
                 manager.startUpdatingLocation()
                 
             }
+        
+        
     }
-    
 }
-
-struct OutageMapView: UIViewRepresentable {
-    func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView()
-                                                   mapView.delegate = context.coordinator
-        
-       // mapView.showsUserLocation = true
-        return mapView
-    }
-    
-    func updateUIView(_ uiView: MKMapView, context: Context) {
-        uiView.showsUserLocation = true
-        
-        //uiView.setCenter(currentLocation, animated: true)
-        uiView.userTrackingMode = .follow
-    }
-    
-    
-    //    func makeCoordinator() -> MapViewCoordinator{
-    //         MapViewCoordinator(self)
-    //    }
-    //
-    //    func makeUIView(context: Context) -> MKMapView {
-    //        MKMapView(frame: .zero)
-    //    }
-    //
-    //    func updateUIView(_ uiView: MKMapView, context: Context) {
-    //        uiView.delegate = context.coordinator
-    //    }
-    //
-    //    typealias UIViewType = UIView
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: NSObject, MKMapViewDelegate {
-        var mapViewController: OutageMapView
-        
-        init(_ control: OutageMapView) {
-            self.mapViewController = control
-        }
-        
-        func mapView(_ mapView: MKMapView, viewFor
-                     annotation: MKAnnotation) -> MKAnnotationView?{
-            //Custom View for Annotation
-            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customView")
-            annotationView.canShowCallout = true
-            //Your custom image icon
-            annotationView.image = UIImage(named: "locationPin")
-            return annotationView
-        }
-    }
-    
-}
-
-
 
 struct OutageMapView_Previews: PreviewProvider {
     static var previews: some View {
@@ -96,7 +42,7 @@ struct OutageMapView_Previews: PreviewProvider {
 }
 
 class BlackMapDelegate: NSObject, MKMapViewDelegate {
-    
+   
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return nil
@@ -134,7 +80,7 @@ class locationDelegate: NSObject,ObservableObject,CLLocationManagerDelegate{
         print(error)
     }
     
-    
+
 }
 
 
