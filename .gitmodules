@@ -1,0 +1,3 @@
+[submodule "eskom-se-api-client"]
+	path = eskom-se-api-client
+	url = https://github.com/glucode/eskom-se-api-client.git
