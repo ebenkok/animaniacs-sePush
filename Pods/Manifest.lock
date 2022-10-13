@@ -1,0 +1,16 @@
+PODS:
+  - shared (1.0)
+
+DEPENDENCIES:
+  - shared (from `eskom-se-api-client/shared`)
+
+EXTERNAL SOURCES:
+  shared:
+    :path: eskom-se-api-client/shared
+
+SPEC CHECKSUMS:
+  shared: 2d3b24a8fe27b7d9e65b8d075a9672fbc6a1aa10
+
+PODFILE CHECKSUM: 5bfdc57849303791f100b0e04b5c6b090552dded
+
+COCOAPODS: 1.11.3

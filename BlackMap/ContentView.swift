@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import shared
 
 struct ContentView: View {
+    
+    let statusVM: StatusViewModel
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,11 +20,17 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        
+        Button("Get Status") {
+            Task {
+                await statusVM.getStatus()
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(statusVM: StatusViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15C4C137FB77C56AEC3186FF /* Pods_BlackMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E94823E68556E1B7598DB6C /* Pods_BlackMap.framework */; };
+		7280A44708AA6FC990E549D1 /* Pods_BlackMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB6A6BCA75902D1613B659B /* Pods_BlackMapTests.framework */; };
+		C9CB56F25B53A7157DB08606 /* Pods_BlackMap_BlackMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227353B1C1BC9CB37583B7D8 /* Pods_BlackMap_BlackMapUITests.framework */; };
 		F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969EC28F7E776003F5757 /* BlackMapApp.swift */; };
 		F63969EF28F7E776003F5757 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969EE28F7E776003F5757 /* ContentView.swift */; };
 		F63969F128F7E777003F5757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63969F028F7E777003F5757 /* Assets.xcassets */; };
@@ -14,6 +17,8 @@
 		F63969FE28F7E778003F5757 /* BlackMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969FD28F7E778003F5757 /* BlackMapTests.swift */; };
 		F6396A0828F7E778003F5757 /* BlackMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6396A0728F7E778003F5757 /* BlackMapUITests.swift */; };
 		F6396A0A28F7E778003F5757 /* BlackMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6396A0928F7E778003F5757 /* BlackMapUITestsLaunchTests.swift */; };
+		F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */; };
+		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DB6A6BCA75902D1613B659B /* Pods_BlackMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E94823E68556E1B7598DB6C /* Pods_BlackMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		227353B1C1BC9CB37583B7D8 /* Pods_BlackMap_BlackMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackMap_BlackMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA06EF99A81C82ABB45659E /* Pods-BlackMap-BlackMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap-BlackMapUITests.release.xcconfig"; path = "Target Support Files/Pods-BlackMap-BlackMapUITests/Pods-BlackMap-BlackMapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4027D423A927C145708F79D0 /* Pods-BlackMap-BlackMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap-BlackMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-BlackMap-BlackMapUITests/Pods-BlackMap-BlackMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5951D2D7503F9D3581DC186D /* Pods-BlackMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMapTests.debug.xcconfig"; path = "Target Support Files/Pods-BlackMapTests/Pods-BlackMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D02571AEC7D551297C424324 /* Pods-BlackMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMapTests.release.xcconfig"; path = "Target Support Files/Pods-BlackMapTests/Pods-BlackMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		EF230EF0B2498EACC569060E /* Pods-BlackMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap.debug.xcconfig"; path = "Target Support Files/Pods-BlackMap/Pods-BlackMap.debug.xcconfig"; sourceTree = "<group>"; };
+		EF5F80DCA96C4F7EB4B6602B /* Pods-BlackMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap.release.xcconfig"; path = "Target Support Files/Pods-BlackMap/Pods-BlackMap.release.xcconfig"; sourceTree = "<group>"; };
 		F63969E928F7E776003F5757 /* BlackMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63969EC28F7E776003F5757 /* BlackMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackMapApp.swift; sourceTree = "<group>"; };
 		F63969EE28F7E776003F5757 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +58,8 @@
 		F6396A0328F7E778003F5757 /* BlackMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6396A0728F7E778003F5757 /* BlackMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackMapUITests.swift; sourceTree = "<group>"; };
 		F6396A0928F7E778003F5757 /* BlackMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenProviderImplementation.swift; sourceTree = "<group>"; };
+		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C4C137FB77C56AEC3186FF /* Pods_BlackMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7280A44708AA6FC990E549D1 /* Pods_BlackMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +83,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9CB56F25B53A7157DB08606 /* Pods_BlackMap_BlackMapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1599C99A898984DC19399869 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF230EF0B2498EACC569060E /* Pods-BlackMap.debug.xcconfig */,
+				EF5F80DCA96C4F7EB4B6602B /* Pods-BlackMap.release.xcconfig */,
+				4027D423A927C145708F79D0 /* Pods-BlackMap-BlackMapUITests.debug.xcconfig */,
+				3FA06EF99A81C82ABB45659E /* Pods-BlackMap-BlackMapUITests.release.xcconfig */,
+				5951D2D7503F9D3581DC186D /* Pods-BlackMapTests.debug.xcconfig */,
+				D02571AEC7D551297C424324 /* Pods-BlackMapTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B64C89C80443E40D62F6CAF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E94823E68556E1B7598DB6C /* Pods_BlackMap.framework */,
+				227353B1C1BC9CB37583B7D8 /* Pods_BlackMap_BlackMapUITests.framework */,
+				0DB6A6BCA75902D1613B659B /* Pods_BlackMapTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F63969E028F7E776003F5757 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +120,8 @@
 				F63969FC28F7E778003F5757 /* BlackMapTests */,
 				F6396A0628F7E778003F5757 /* BlackMapUITests */,
 				F63969EA28F7E776003F5757 /* Products */,
+				1599C99A898984DC19399869 /* Pods */,
+				B64C89C80443E40D62F6CAF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +138,8 @@
 		F63969EB28F7E776003F5757 /* BlackMap */ = {
 			isa = PBXGroup;
 			children = (
+				F6CA9DCB28F840FD003ECD03 /* ViewModel */,
+				F6CA9DC828F82CC9003ECD03 /* Providers */,
 				F63969EC28F7E776003F5757 /* BlackMapApp.swift */,
 				F63969EE28F7E776003F5757 /* ContentView.swift */,
 				F63969F028F7E777003F5757 /* Assets.xcassets */,
@@ -127,6 +173,22 @@
 			path = BlackMapUITests;
 			sourceTree = "<group>";
 		};
+		F6CA9DC828F82CC9003ECD03 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		F6CA9DCB28F840FD003ECD03 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +196,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6396A0D28F7E778003F5757 /* Build configuration list for PBXNativeTarget "BlackMap" */;
 			buildPhases = (
+				F94DDAC560FEAE54959F6C4C /* [CP] Check Pods Manifest.lock */,
 				F63969E528F7E776003F5757 /* Sources */,
 				F63969E628F7E776003F5757 /* Frameworks */,
 				F63969E728F7E776003F5757 /* Resources */,
@@ -151,6 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6396A1028F7E778003F5757 /* Build configuration list for PBXNativeTarget "BlackMapTests" */;
 			buildPhases = (
+				EB7F737B34507B3D5AFC8893 /* [CP] Check Pods Manifest.lock */,
 				F63969F528F7E778003F5757 /* Sources */,
 				F63969F628F7E778003F5757 /* Frameworks */,
 				F63969F728F7E778003F5757 /* Resources */,
@@ -169,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6396A1328F7E778003F5757 /* Build configuration list for PBXNativeTarget "BlackMapUITests" */;
 			buildPhases = (
+				85DA5EE0D743B29C83FB9752 /* [CP] Check Pods Manifest.lock */,
 				F63969FF28F7E778003F5757 /* Sources */,
 				F6396A0028F7E778003F5757 /* Frameworks */,
 				F6396A0128F7E778003F5757 /* Resources */,
@@ -252,13 +317,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		85DA5EE0D743B29C83FB9752 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlackMap-BlackMapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB7F737B34507B3D5AFC8893 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlackMapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F94DDAC560FEAE54959F6C4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlackMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F63969E528F7E776003F5757 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */,
 				F63969EF28F7E776003F5757 /* ContentView.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
+				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +547,7 @@
 		};
 		F6396A0E28F7E778003F5757 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF230EF0B2498EACC569060E /* Pods-BlackMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -418,6 +555,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BlackMap/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -439,6 +577,7 @@
 		};
 		F6396A0F28F7E778003F5757 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF5F80DCA96C4F7EB4B6602B /* Pods-BlackMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -467,6 +606,7 @@
 		};
 		F6396A1128F7E778003F5757 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5951D2D7503F9D3581DC186D /* Pods-BlackMapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,6 +626,7 @@
 		};
 		F6396A1228F7E778003F5757 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D02571AEC7D551297C424324 /* Pods-BlackMapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -505,6 +646,7 @@
 		};
 		F6396A1428F7E778003F5757 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4027D423A927C145708F79D0 /* Pods-BlackMap-BlackMapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,6 +664,7 @@
 		};
 		F6396A1528F7E778003F5757 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA06EF99A81C82ABB45659E /* Pods-BlackMap-BlackMapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

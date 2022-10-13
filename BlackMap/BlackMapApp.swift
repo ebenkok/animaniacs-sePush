@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import shared
 
 @main
 struct BlackMapApp: App {
+    
+    init() {
+            _ = DI(
+                serverUrl: "serverurl",
+                accessTokenProvider: AccessTokenProviderImplementation() as! AccessTokenProvider ,
+                enableHttpLogging: true
+            )
+        }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(statusVM: StatusViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
         }
     }
 }
