@@ -13,7 +13,7 @@ struct BlackMapApp: App {
     
     init() {
             _ = DI(
-                serverUrl: "serverurl",
+                serverUrl: "developer.sepush.co.za",
                 accessTokenProvider: AccessTokenProviderImplementation() as! AccessTokenProvider ,
                 enableHttpLogging: true
             )
