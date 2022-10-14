@@ -16,6 +16,7 @@ struct MapContainerView: View {
         Landmark(name: "Brooklyn Bridge", location: .init(latitude: 40.706, longitude: -73.997))
         ]
 
+    @ObservedObject var jsonProvider = GeoJSONHelper()
     
     @State var selectedLandmark: Landmark? = nil
     //bronson
@@ -23,7 +24,7 @@ struct MapContainerView: View {
     var body: some View {
         //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
         ZStack {
-            MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark)
+            MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.vertical)
             //bronson
             Button(action:{ showModel = true}) {
@@ -45,6 +46,8 @@ struct MapContainerView: View {
 //                    self.selectNextLandmark()
 //                }
 //            }
+        }.onAppear {
+            jsonProvider.loadGeoJson()
         }
         
     }

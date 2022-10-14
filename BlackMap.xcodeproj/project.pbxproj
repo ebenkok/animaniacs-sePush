@@ -22,6 +22,8 @@
 		F69216E328F943B6000F0E78 /* LandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E228F943B6000F0E78 /* LandMark.swift */; };
 		F69216E528F943FE000F0E78 /* MapLocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */; };
 		F69216E728F94443000F0E78 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E628F94443000F0E78 /* MapPin.swift */; };
+		F69216F328F9A7AB000F0E78 /* GeoJSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216F228F9A7AB000F0E78 /* GeoJSONHelper.swift */; };
+		F69216F428F9BA48000F0E78 /* SampleGeoJSON.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */; };
 		F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */; };
 		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
 		F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */; };
@@ -69,6 +71,8 @@
 		F69216E228F943B6000F0E78 /* LandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMark.swift; sourceTree = "<group>"; };
 		F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationDelegate.swift; sourceTree = "<group>"; };
 		F69216E628F94443000F0E78 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; name = SampleGeoJSON.geojson; path = Resources/SampleGeoJSON.geojson; sourceTree = "<group>"; };
+		F69216F228F9A7AB000F0E78 /* GeoJSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONHelper.swift; sourceTree = "<group>"; };
 		F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenProviderImplementation.swift; sourceTree = "<group>"; };
 		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				F63969EE28F7E776003F5757 /* ContentView.swift */,
 				F63969F028F7E777003F5757 /* Assets.xcassets */,
 				F63969F228F7E778003F5757 /* Preview Content */,
+				F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */,
 			);
 			path = BlackMap;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			children = (
 				F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */,
 				F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */,
+				F69216F228F9A7AB000F0E78 /* GeoJSONHelper.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63969F428F7E778003F5757 /* Preview Assets.xcassets in Resources */,
+				F69216F428F9BA48000F0E78 /* SampleGeoJSON.geojson in Resources */,
 				F63969F128F7E777003F5757 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +429,7 @@
 				F63969EF28F7E776003F5757 /* ContentView.swift in Sources */,
 				F69216E728F94443000F0E78 /* MapPin.swift in Sources */,
 				CF731FB028F97233006E7F77 /* ModelView.swift in Sources */,
+				F69216F328F9A7AB000F0E78 /* GeoJSONHelper.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
 				F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */,

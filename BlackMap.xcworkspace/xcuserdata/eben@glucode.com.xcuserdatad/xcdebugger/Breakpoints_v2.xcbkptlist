@@ -32,7 +32,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "272">
+                  offsetFromSymbolStart = "263">
                </Location>
                <Location
                   uuid = "79F6BA7C-1508-4F54-A3F2-01009A1A5294 - 90645209509e65f9"
@@ -47,7 +47,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "288">
+                  offsetFromSymbolStart = "295">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -81,6 +81,22 @@
             startingLineNumber = "113"
             endingLineNumber = "113"
             landmarkName = "selectNextLandmark()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6A75023-A05F-4073-BCBB-C670F45C7021"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlackMap/Providers/GeoJSONHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "loadGeoJson()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
