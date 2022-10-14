@@ -8,31 +8,6 @@
 import SwiftUI
 import MapKit
 
-
-struct Landmark: Equatable {
-    static func == (lhs: Landmark, rhs: Landmark) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    let id: String = UUID().uuidString
-    let name: String
-    let location: CLLocationCoordinate2D
-}
-
-final class LandmarkAnnotation: NSObject, MKAnnotation {
-    let id: String
-    let title: String?
-    let coordinate: CLLocationCoordinate2D
-
-    init(landmark: Landmark) {
-        self.id = landmark.id
-        self.title = landmark.name
-        self.coordinate = landmark.location
-    }
-}
-
-// MARK: - MapView - End
-
 struct MapContainerView: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     
