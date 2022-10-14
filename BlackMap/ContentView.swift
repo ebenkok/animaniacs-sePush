@@ -19,7 +19,7 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     VStack(spacing: 5) {
-                        NavigationLink(destination: OutageMapView(), isActive: $isShowingDetailView) { EmptyView() }
+                        NavigationLink(destination: MapContainerView(), isActive: $isShowingDetailView) { EmptyView() }
                         
                         Button("Show Map") {
                             isShowingDetailView = true

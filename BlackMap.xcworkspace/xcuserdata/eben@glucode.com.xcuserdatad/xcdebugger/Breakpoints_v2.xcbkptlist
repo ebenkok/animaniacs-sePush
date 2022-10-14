@@ -32,7 +32,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "263">
+                  offsetFromSymbolStart = "272">
                </Location>
                <Location
                   uuid = "79F6BA7C-1508-4F54-A3F2-01009A1A5294 - 90645209509e65f9"
@@ -47,7 +47,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
                   endingLineNumber = "18"
-                  offsetFromSymbolStart = "295">
+                  offsetFromSymbolStart = "288">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,32 +55,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AFBE8520-98C2-4105-977B-45199F16057E"
+            uuid = "F3D5FC4C-F10A-44FE-9E47-D168FB1CDEFB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlackMap/Views/OutageMapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "makeUIView(context:)"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "locationManager(_:didFailWithError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1D66857B-1321-4A48-8FEF-3C9F6E224F03"
+            uuid = "3CFEC2CF-EA51-451D-B317-887B5245C9D2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlackMap/Views/OutageMapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "makeCoordinator()"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "selectNextLandmark()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
