@@ -18,18 +18,35 @@ struct MapContainerView: View {
 
     
     @State var selectedLandmark: Landmark? = nil
-    
+    //bronson
+    @State private var showModel = false
     var body: some View {
+        //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
         ZStack {
             MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark)
                     .edgesIgnoringSafeArea(.vertical)
-            VStack {
-                Spacer()
-                Button("Next") {
-                    self.selectNextLandmark()
-                }
+            //bronson
+            Button(action:{ showModel = true}) {
+                Text("click me")
+                    .font(.system(size: 40, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 40)
+                    .background(Color.black.opacity(0.3))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
             }
+            .offset(y: -300)
+            
+            ModelView(isShowing: $showModel)
+            
+//            VStack {
+//                Spacer()
+//                Button("Next")  {
+//                    self.selectNextLandmark()
+//                }
+//            }
         }
+        
     }
     
     private func selectNextLandmark() {

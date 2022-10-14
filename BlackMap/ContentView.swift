@@ -10,6 +10,9 @@ import shared
 
 struct ContentView: View {
     
+    
+    
+    
     let statusVM: StatusViewModel
     @State private var isAnimating: Bool = false
     @State private var isShowingDetailView = false

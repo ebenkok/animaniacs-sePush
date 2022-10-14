@@ -10,6 +10,6 @@ import shared
 
 class AccessTokenProviderImplementation: AccessTokenProvider {
     func provideAccessToken() async throws -> String {
-        return ""
+        return "OYwHV757aPgqXbpxyn2l"
     }
 }
