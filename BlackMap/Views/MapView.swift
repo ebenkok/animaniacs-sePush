@@ -13,7 +13,7 @@ struct MapView: UIViewRepresentable {
     @Binding var landmarks: [Landmark]
     @Binding var selectedLandmark: Landmark?
     @State var manager = CLLocationManager()
-    @State var managerDelegate = locationDelegate()
+    @State var managerDelegate = MapLocationDelegate()
     
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
