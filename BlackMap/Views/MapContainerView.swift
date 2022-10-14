@@ -43,13 +43,6 @@ struct MapContainerView: View {
 
 
 
-// Map pins for update
-struct Pin : Identifiable {
-    var id = UUID().uuidString
-    var location : CLLocation
-}
-
-
 struct OutageMapView_Previews: PreviewProvider {
     static var previews: some View {
         MapContainerView()

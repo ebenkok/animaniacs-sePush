@@ -20,6 +20,7 @@
 		F69216E128F94367000F0E78 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E028F94367000F0E78 /* MapView.swift */; };
 		F69216E328F943B6000F0E78 /* LandMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E228F943B6000F0E78 /* LandMark.swift */; };
 		F69216E528F943FE000F0E78 /* MapLocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */; };
+		F69216E728F94443000F0E78 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E628F94443000F0E78 /* MapPin.swift */; };
 		F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */; };
 		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
 		F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */; };
@@ -65,6 +66,7 @@
 		F69216E028F94367000F0E78 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F69216E228F943B6000F0E78 /* LandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMark.swift; sourceTree = "<group>"; };
 		F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationDelegate.swift; sourceTree = "<group>"; };
+		F69216E628F94443000F0E78 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenProviderImplementation.swift; sourceTree = "<group>"; };
 		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */,
 				F69216E228F943B6000F0E78 /* LandMark.swift */,
+				F69216E628F94443000F0E78 /* MapPin.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */,
 				F69216E128F94367000F0E78 /* MapView.swift in Sources */,
 				F63969EF28F7E776003F5757 /* ContentView.swift in Sources */,
+				F69216E728F94443000F0E78 /* MapPin.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
 				F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */,

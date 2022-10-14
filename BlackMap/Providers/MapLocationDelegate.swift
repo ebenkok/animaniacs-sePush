@@ -10,7 +10,7 @@ import MapKit
 
 class MapLocationDelegate: NSObject,ObservableObject,CLLocationManagerDelegate{
     
-    @Published var pins : [Pin] = []
+    @Published var pins : [MapPin] = []
     //@Published var publishedError: Error? = nil
     // Checking authorization status...
     
@@ -26,7 +26,7 @@ class MapLocationDelegate: NSObject,ObservableObject,CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        pins.append(Pin(location:locations.last!))
+        pins.append(MapPin(location:locations.last!))
         
     }
     
