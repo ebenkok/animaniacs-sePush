@@ -11,6 +11,8 @@
 		7280A44708AA6FC990E549D1 /* Pods_BlackMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB6A6BCA75902D1613B659B /* Pods_BlackMapTests.framework */; };
 		C9CB56F25B53A7157DB08606 /* Pods_BlackMap_BlackMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227353B1C1BC9CB37583B7D8 /* Pods_BlackMap_BlackMapUITests.framework */; };
 		CF731FB028F97233006E7F77 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FAF28F97233006E7F77 /* ModelView.swift */; };
+		CF731FB228F9A327006E7F77 /* StagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FB128F9A327006E7F77 /* StagesView.swift */; };
+		CF731FB428F9A927006E7F77 /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FB328F9A927006E7F77 /* TimesView.swift */; };
 		F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969EC28F7E776003F5757 /* BlackMapApp.swift */; };
 		F63969EF28F7E776003F5757 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969EE28F7E776003F5757 /* ContentView.swift */; };
 		F63969F128F7E777003F5757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63969F028F7E777003F5757 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		4027D423A927C145708F79D0 /* Pods-BlackMap-BlackMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap-BlackMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-BlackMap-BlackMapUITests/Pods-BlackMap-BlackMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5951D2D7503F9D3581DC186D /* Pods-BlackMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMapTests.debug.xcconfig"; path = "Target Support Files/Pods-BlackMapTests/Pods-BlackMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF731FAF28F97233006E7F77 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
+		CF731FB128F9A327006E7F77 /* StagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesView.swift; sourceTree = "<group>"; };
+		CF731FB328F9A927006E7F77 /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesView.swift; sourceTree = "<group>"; };
 		D02571AEC7D551297C424324 /* Pods-BlackMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMapTests.release.xcconfig"; path = "Target Support Files/Pods-BlackMapTests/Pods-BlackMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF230EF0B2498EACC569060E /* Pods-BlackMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap.debug.xcconfig"; path = "Target Support Files/Pods-BlackMap/Pods-BlackMap.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5F80DCA96C4F7EB4B6602B /* Pods-BlackMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap.release.xcconfig"; path = "Target Support Files/Pods-BlackMap/Pods-BlackMap.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */,
 				F69216E028F94367000F0E78 /* MapView.swift */,
 				CF731FAF28F97233006E7F77 /* ModelView.swift */,
+				CF731FB128F9A327006E7F77 /* StagesView.swift */,
+				CF731FB328F9A927006E7F77 /* TimesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,11 +428,13 @@
 				F63969EF28F7E776003F5757 /* ContentView.swift in Sources */,
 				F69216E728F94443000F0E78 /* MapPin.swift in Sources */,
 				CF731FB028F97233006E7F77 /* ModelView.swift in Sources */,
+				CF731FB228F9A327006E7F77 /* StagesView.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
 				F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */,
 				F69216E528F943FE000F0E78 /* MapLocationDelegate.swift in Sources */,
 				F69216E328F943B6000F0E78 /* LandMark.swift in Sources */,
+				CF731FB428F9A927006E7F77 /* TimesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
