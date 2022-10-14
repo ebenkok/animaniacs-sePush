@@ -17,6 +17,7 @@
 		F63969FE28F7E778003F5757 /* BlackMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969FD28F7E778003F5757 /* BlackMapTests.swift */; };
 		F6396A0828F7E778003F5757 /* BlackMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6396A0728F7E778003F5757 /* BlackMapUITests.swift */; };
 		F6396A0A28F7E778003F5757 /* BlackMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6396A0928F7E778003F5757 /* BlackMapUITestsLaunchTests.swift */; };
+		F69216E128F94367000F0E78 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E028F94367000F0E78 /* MapView.swift */; };
 		F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */; };
 		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
 		F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */; };
@@ -59,6 +60,7 @@
 		F6396A0328F7E778003F5757 /* BlackMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6396A0728F7E778003F5757 /* BlackMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackMapUITests.swift; sourceTree = "<group>"; };
 		F6396A0928F7E778003F5757 /* BlackMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F69216E028F94367000F0E78 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenProviderImplementation.swift; sourceTree = "<group>"; };
 		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */,
+				F69216E028F94367000F0E78 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */,
+				F69216E128F94367000F0E78 /* MapView.swift in Sources */,
 				F63969EF28F7E776003F5757 /* ContentView.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
