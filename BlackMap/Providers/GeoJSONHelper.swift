@@ -15,7 +15,7 @@ class GeoJSONHelper: ObservableObject {
     var tempOverlay = [MKOverlay]()
     
     func loadGeoJson() {
-        guard let url = Bundle.main.url(forResource: "gadm41_ZAF_4", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "Gauteng", withExtension: "geojson") else {
             fatalError("unable to get geojson")
         }
         
@@ -39,18 +39,22 @@ class GeoJSONHelper: ObservableObject {
                 if let polygon = geometry as? MKPolygon {
                     let polygonInfo = try? JSONDecoder.init().decode(PolygonInfo.self, from: propData)
                     //call render function to render our polygon shape
+                   
                     render(overlay: polygon, info: polygonInfo)
                 }
                 
                 if let polygon = geometry as? MKMultiPolygon {
                     for poly in polygon.polygons {
-                        let polygonInfo = try? JSONDecoder.init().decode(PolygonInfo.self, from: propData)
-                        //call render function to render our polygon shape
-                        render(overlay: poly, info: polygonInfo)
+                        if let polygonInfo = try? JSONDecoder.init().decode(PolygonInfo.self, from: propData) {
+                            //call render function to render our polygon shape
+                            print("---------")
+                            print(polygonInfo)
+                            poly.title = "\(polygonInfo.country)-\(polygonInfo.name1)-\(polygonInfo.name2)-\(polygonInfo.name3)-\(polygonInfo.name4)"
+                            render(overlay: poly, info: polygonInfo)
+                        }
+                        
                     }
                 }
-                
-                
                 
                 for multipolygon in feature.geometry {
                     if let multi = multipolygon as? MKMultiPolygon {
@@ -75,6 +79,7 @@ class GeoJSONHelper: ObservableObject {
         if let polygonInfo = info as? PolygonInfo {
             overlayer.shared.changePolygon(newPolygon: polygonInfo)
         }
+        
         let newMapOverlay = MapOverlayer(overlay: overlay, polygonInfo: overlayer.shared.polygonInfo)
         MapOverlays.shared.addOverlay(mapOverlayer: newMapOverlay)
         // self.mapView.addOverlay(overlay)

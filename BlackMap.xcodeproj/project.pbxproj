@@ -32,6 +32,15 @@
 		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
 		F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */; };
 		F6D8B35128FAC40200825434 /* Polygon+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8B35028FAC40200825434 /* Polygon+extension.swift */; };
+		F6D8B35328FB10D200825434 /* EasternCape.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35228FB10D200825434 /* EasternCape.geojson */; };
+		F6D8B35528FB154500825434 /* Freestate.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35428FB154500825434 /* Freestate.geojson */; };
+		F6D8B35728FB16D800825434 /* Gauteng.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35628FB16D800825434 /* Gauteng.geojson */; };
+		F6D8B35F28FB18F600825434 /* Limpopo.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35828FB18F600825434 /* Limpopo.geojson */; };
+		F6D8B36028FB18F600825434 /* NorthernCape.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35928FB18F600825434 /* NorthernCape.geojson */; };
+		F6D8B36128FB18F600825434 /* WesternCape.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35A28FB18F600825434 /* WesternCape.geojson */; };
+		F6D8B36228FB18F600825434 /* Mpumalanga.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35B28FB18F600825434 /* Mpumalanga.geojson */; };
+		F6D8B36328FB18F600825434 /* KwaZuluNatal.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35C28FB18F600825434 /* KwaZuluNatal.geojson */; };
+		F6D8B36528FB18F600825434 /* NorthWest.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35E28FB18F600825434 /* NorthWest.geojson */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +95,15 @@
 		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
 		F6D8B35028FAC40200825434 /* Polygon+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Polygon+extension.swift"; sourceTree = "<group>"; };
+		F6D8B35228FB10D200825434 /* EasternCape.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EasternCape.geojson; sourceTree = "<group>"; };
+		F6D8B35428FB154500825434 /* Freestate.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Freestate.geojson; sourceTree = "<group>"; };
+		F6D8B35628FB16D800825434 /* Gauteng.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gauteng.geojson; sourceTree = "<group>"; };
+		F6D8B35828FB18F600825434 /* Limpopo.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Limpopo.geojson; sourceTree = "<group>"; };
+		F6D8B35928FB18F600825434 /* NorthernCape.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NorthernCape.geojson; sourceTree = "<group>"; };
+		F6D8B35A28FB18F600825434 /* WesternCape.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WesternCape.geojson; sourceTree = "<group>"; };
+		F6D8B35B28FB18F600825434 /* Mpumalanga.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mpumalanga.geojson; sourceTree = "<group>"; };
+		F6D8B35C28FB18F600825434 /* KwaZuluNatal.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KwaZuluNatal.geojson; sourceTree = "<group>"; };
+		F6D8B35E28FB18F600825434 /* NorthWest.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NorthWest.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +222,15 @@
 		F69216F528FAAB12000F0E78 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F6D8B35628FB16D800825434 /* Gauteng.geojson */,
+				F6D8B35C28FB18F600825434 /* KwaZuluNatal.geojson */,
+				F6D8B35828FB18F600825434 /* Limpopo.geojson */,
+				F6D8B35B28FB18F600825434 /* Mpumalanga.geojson */,
+				F6D8B35928FB18F600825434 /* NorthernCape.geojson */,
+				F6D8B35E28FB18F600825434 /* NorthWest.geojson */,
+				F6D8B35A28FB18F600825434 /* WesternCape.geojson */,
+				F6D8B35428FB154500825434 /* Freestate.geojson */,
+				F6D8B35228FB10D200825434 /* EasternCape.geojson */,
 				F69216F628FAAB3A000F0E78 /* gadm41_ZAF_4.json */,
 				F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */,
 			);
@@ -351,10 +378,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D8B35328FB10D200825434 /* EasternCape.geojson in Resources */,
+				F6D8B35528FB154500825434 /* Freestate.geojson in Resources */,
+				F6D8B36328FB18F600825434 /* KwaZuluNatal.geojson in Resources */,
+				F6D8B35F28FB18F600825434 /* Limpopo.geojson in Resources */,
+				F6D8B36028FB18F600825434 /* NorthernCape.geojson in Resources */,
 				F63969F428F7E778003F5757 /* Preview Assets.xcassets in Resources */,
+				F6D8B36528FB18F600825434 /* NorthWest.geojson in Resources */,
+				F6D8B36128FB18F600825434 /* WesternCape.geojson in Resources */,
+				F6D8B36228FB18F600825434 /* Mpumalanga.geojson in Resources */,
 				F69216F428F9BA48000F0E78 /* SampleGeoJSON.geojson in Resources */,
 				F69216F728FAAB3A000F0E78 /* gadm41_ZAF_4.json in Resources */,
 				F63969F128F7E777003F5757 /* Assets.xcassets in Resources */,
+				F6D8B35728FB16D800825434 /* Gauteng.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
