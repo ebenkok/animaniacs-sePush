@@ -29,7 +29,7 @@ struct SliderView: View {
                 
                 
             }.padding()
-                .background(Color.black.opacity(0.015))
+                .background(Color.white.opacity(0.8))
                 .cornerRadius(20)
                 .padding(.horizontal, 30)
                 .padding(.top, 20)
