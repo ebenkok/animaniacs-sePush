@@ -33,6 +33,8 @@ struct MapContainerView: View {
             MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.vertical)
             //bronson
+            SliderView()
+            
             HStack {
                 Button(action:{ showModel = true}) {
                     Text("click me")
