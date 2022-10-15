@@ -15,7 +15,7 @@ class GeoJSONHelper: ObservableObject {
     var tempOverlay = [MKOverlay]()
     
     func loadGeoJson() {
-        guard let url = Bundle.main.url(forResource: "gadm41_ZAF_4", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "Gauteng", withExtension: "geojson") else {
             fatalError("unable to get geojson")
         }
         
