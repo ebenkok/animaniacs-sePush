@@ -57,15 +57,57 @@ struct ModelView: View {
             
             ZStack {
                 VStack{
-                    Text("helo")
-                    Text("helo")
-                    Text("helo")
+                    
+                        VStack(alignment: .center){
+                            
+                            Text("Mayersdal")
+                                .font(.title)
+                            
+                            Button(action:{}) {
+                                Text("Power on")
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 20)
+                                    .padding(.horizontal, 130)
+                                    .background(Color.green.opacity(30))
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    
+                                   
+                               
+                               
+                                
+                            }
+                            
+                            
+                        }
+                        
+                       
+                    
+                    StagesView()
+                        .padding(.vertical, 10)
+                        .background(Color.black.opacity(0.015))
+                        .cornerRadius(20)
+                        .padding(.horizontal, 30)
+                        .padding(.top, 20)
+                    
+                    TimesView()
+                        .padding(.vertical, 10)
+                        .background(Color.black.opacity(0.015))
+                        .cornerRadius(20)
+                        .padding(.horizontal, 30)
+                        .padding(.top, 20)
+                    
+               
+                 
+                   
+                        
                 }
-                .padding(.horizontal, 30)
+              
+               
                 
             }
             .frame(maxHeight: .infinity)
             .padding(.bottom, 35)
+            
         }
         .frame(height: curHeight)
         .frame(maxWidth: .infinity)
