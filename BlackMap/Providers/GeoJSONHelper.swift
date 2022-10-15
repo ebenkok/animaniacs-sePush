@@ -12,8 +12,10 @@ class GeoJSONHelper: ObservableObject {
     
     @Published var overlays = [MKOverlay]()
     
+    var tempOverlay = [MKOverlay]()
+    
     func loadGeoJson() {
-        guard let url = Bundle.main.url(forResource: "SampleGeoJSON", withExtension: "geojson") else {
+        guard let url = Bundle.main.url(forResource: "gadm41_ZAF_4", withExtension: "json") else {
             fatalError("unable to get geojson")
         }
         
@@ -27,7 +29,9 @@ class GeoJSONHelper: ObservableObject {
             fatalError("Unable to decode JSON")
         }
         
+        var i = 0
         for item in geoJson {
+            i += 1
             if let feature = item as? MKGeoJSONFeature {
                 let geometry = feature.geometry.first
                 let propData = feature.properties!
@@ -38,12 +42,32 @@ class GeoJSONHelper: ObservableObject {
                     render(overlay: polygon, info: polygonInfo)
                 }
                 
-                for geo in feature.geometry {
-                    if let polygon = geo as? MKPolygon {
-                        overlays.append(polygon)
+                if let polygon = geometry as? MKMultiPolygon {
+                    for poly in polygon.polygons {
+                        let polygonInfo = try? JSONDecoder.init().decode(PolygonInfo.self, from: propData)
+                        //call render function to render our polygon shape
+                        render(overlay: poly, info: polygonInfo)
+                    }
+                }
+                
+                
+                
+                for multipolygon in feature.geometry {
+                    if let multi = multipolygon as? MKMultiPolygon {
+                        for polygon in multi.polygons {
+                            if let polygon = polygon as? MKPolygon {
+                                tempOverlay.append(polygon)
+                            }
+                        }
                     }
                 }
             }
+    //        if i == 800 {
+                DispatchQueue.main.async {
+                    self.overlays = self.tempOverlay
+                }
+                //break
+      //      }
         }
     }
     
@@ -59,19 +83,29 @@ class GeoJSONHelper: ObservableObject {
     
 }
 struct PolygonInfo: Codable {
-    var id, kode, jumlah: Int
-    let latitude, longitude: Double
-    let propinsi: String
-    let sumber: String
+//    var id, kode, jumlah: Int
+//    let latitude, longitude: Double
+//    let propinsi: String
+//    let sumber: String
+    let country: String
+    let name1: String
+    let name2: String
+    let name3: String
+    let name4: String
 
     enum CodingKeys: String, CodingKey {
-        case id = "ID"
-        case kode = "kode"
-        case propinsi = "Propinsi"
-        case sumber = "SUMBER"
-        case jumlah = "Jumlah"
-        case latitude = "latitude"
-        case longitude = "longitude"
+        //case id = "ID"
+//        case kode = "kode"
+        case country = "COUNTRY"
+        case name1 = "NAME_1"
+        case name2 = "NAME_2"
+        case name3 = "NAME_3"
+        case name4 = "NAME_4"
+//        case propinsi = "Propinsi"
+//        case sumber = "SUMBER"
+//        case jumlah = "Jumlah"
+//        case latitude = "latitude"
+//        case longitude = "longitude"
     }
 }
 
@@ -96,7 +130,7 @@ class MapOverlays {
 
 //Track the latest Shape Overlay
 class overlayer {
-    static var shared = overlayer(polygonInfo: PolygonInfo(id: 1, kode: 2, jumlah: 0, latitude: 0, longitude: 0, propinsi: "1", sumber: "2"))
+    static var shared = overlayer(polygonInfo: PolygonInfo(country: "SA", name1: "asda", name2: "1212", name3: "2323", name4: "3232"))
     var polygonInfo : PolygonInfo
     
     init(polygonInfo: PolygonInfo){

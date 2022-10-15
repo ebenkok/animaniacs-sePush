@@ -15,8 +15,7 @@ struct MapView: UIViewRepresentable {
     @State var manager = CLLocationManager()
     @State var managerDelegate = MapLocationDelegate()
     @Binding var polygons: [MKOverlay]
-    //@ObservedObject var overlays = GeoJSONHelper()
-
+    
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
         map.delegate = context.coordinator
@@ -30,13 +29,13 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         updateAnnotations(from: uiView)
-        print($polygons)
+        //print($polygons)
 //        let poly = $polygons {
 //            poly.
 //        }
         for item in polygons {
             uiView.addOverlay(item)
-            uiView.setVisibleMapRect(item.boundingMapRect, animated: true)
+         //   uiView.setVisibleMapRect(item.boundingMapRect, animated: true)
         }
         //uiView.addOverlays(polygons)
     }
@@ -75,27 +74,28 @@ struct MapView: UIViewRepresentable {
                 let renderer = MKPolygonRenderer(polygon: polygon)
                 
                 //MARK: -Custom shape fillColor based on latest renderer data
-                if overlayer.shared.polygonInfo.jumlah == 0 {
-                    renderer.fillColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.5)
-                }
-                else if overlayer.shared.polygonInfo.jumlah > 0 && overlayer.shared.polygonInfo.jumlah < 100 {
-                    renderer.fillColor = UIColor(red: 255/255, green: 215/255, blue: 0/255, alpha: 0.5)
-                }
+//                if overlayer.shared.polygonInfo.jumlah == 0 {
+//                    renderer.fillColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.5)
+//                }
+//                else if overlayer.shared.polygonInfo.jumlah > 0 && overlayer.shared.polygonInfo.jumlah < 100 {
+//                    renderer.fillColor = UIColor(red: 255/255, green: 215/255, blue: 0/255, alpha: 0.5)
+//                }
+//                
+//                else if overlayer.shared.polygonInfo.jumlah > 99 && overlayer.shared.polygonInfo.jumlah < 300 {
+//                    renderer.fillColor = UIColor(red: 255/255, green: 174/255, blue: 66/255, alpha: 0.5)
+//                }
+//                
+//                else if overlayer.shared.polygonInfo.jumlah > 300 {
+//                    renderer.fillColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
+//                }
                 
-                else if overlayer.shared.polygonInfo.jumlah > 99 && overlayer.shared.polygonInfo.jumlah < 300 {
-                    renderer.fillColor = UIColor(red: 255/255, green: 174/255, blue: 66/255, alpha: 0.5)
-                }
-                
-                else if overlayer.shared.polygonInfo.jumlah > 300 {
-                    renderer.fillColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
-                }
-                
-                renderer.strokeColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.3)
-                renderer.lineWidth = 1
+//                renderer.strokeColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.3)
+                renderer.strokeColor = .red
+                renderer.lineWidth = 1.5
                 
                 //MARK: -Custom title and subtitle to store detail information
-                renderer.polygon.title = overlayer.shared.polygonInfo.propinsi
-                renderer.polygon.subtitle = "\(overlayer.shared.polygonInfo.jumlah)"
+                renderer.polygon.title = overlayer.shared.polygonInfo.name4
+                renderer.polygon.subtitle = "\(overlayer.shared.polygonInfo.country)-\(overlayer.shared.polygonInfo.name1)-\(overlayer.shared.polygonInfo.name2)-\(overlayer.shared.polygonInfo.name3)-\(overlayer.shared.polygonInfo.name4)"
                 return renderer
             }
             //        else if let multiPolygon = overlay as? MKMultiPolygon { ... }

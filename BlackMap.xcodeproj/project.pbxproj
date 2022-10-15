@@ -26,9 +26,11 @@
 		F69216E728F94443000F0E78 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216E628F94443000F0E78 /* MapPin.swift */; };
 		F69216F328F9A7AB000F0E78 /* GeoJSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69216F228F9A7AB000F0E78 /* GeoJSONHelper.swift */; };
 		F69216F428F9BA48000F0E78 /* SampleGeoJSON.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */; };
+		F69216F728FAAB3A000F0E78 /* gadm41_ZAF_4.json in Resources */ = {isa = PBXBuildFile; fileRef = F69216F628FAAB3A000F0E78 /* gadm41_ZAF_4.json */; };
 		F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */; };
 		F6CA9DCD28F84113003ECD03 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */; };
 		F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */; };
+		F6D8B35128FAC40200825434 /* Polygon+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8B35028FAC40200825434 /* Polygon+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,11 +77,13 @@
 		F69216E228F943B6000F0E78 /* LandMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandMark.swift; sourceTree = "<group>"; };
 		F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationDelegate.swift; sourceTree = "<group>"; };
 		F69216E628F94443000F0E78 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
-		F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; name = SampleGeoJSON.geojson; path = Resources/SampleGeoJSON.geojson; sourceTree = "<group>"; };
+		F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleGeoJSON.geojson; sourceTree = "<group>"; };
 		F69216F228F9A7AB000F0E78 /* GeoJSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONHelper.swift; sourceTree = "<group>"; };
+		F69216F628FAAB3A000F0E78 /* gadm41_ZAF_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gadm41_ZAF_4.json; sourceTree = "<group>"; };
 		F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenProviderImplementation.swift; sourceTree = "<group>"; };
 		F6CA9DCC28F84113003ECD03 /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
+		F6D8B35028FAC40200825434 /* Polygon+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Polygon+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 		F63969EB28F7E776003F5757 /* BlackMap */ = {
 			isa = PBXGroup;
 			children = (
+				F69216F528FAAB12000F0E78 /* Data */,
 				F6CA9DCE28F84A99003ECD03 /* Views */,
 				F6CA9DCB28F840FD003ECD03 /* ViewModel */,
 				F6CA9DC828F82CC9003ECD03 /* Providers */,
@@ -165,7 +170,6 @@
 				F63969EE28F7E776003F5757 /* ContentView.swift */,
 				F63969F028F7E777003F5757 /* Assets.xcassets */,
 				F63969F228F7E778003F5757 /* Preview Content */,
-				F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */,
 			);
 			path = BlackMap;
 			sourceTree = "<group>";
@@ -195,12 +199,22 @@
 			path = BlackMapUITests;
 			sourceTree = "<group>";
 		};
+		F69216F528FAAB12000F0E78 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F69216F628FAAB3A000F0E78 /* gadm41_ZAF_4.json */,
+				F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		F6CA9DC828F82CC9003ECD03 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
 				F6CA9DC928F82CE1003ECD03 /* AccessTokenProviderImplementation.swift */,
 				F69216E428F943FE000F0E78 /* MapLocationDelegate.swift */,
 				F69216F228F9A7AB000F0E78 /* GeoJSONHelper.swift */,
+				F6D8B35028FAC40200825434 /* Polygon+extension.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -336,6 +350,7 @@
 			files = (
 				F63969F428F7E778003F5757 /* Preview Assets.xcassets in Resources */,
 				F69216F428F9BA48000F0E78 /* SampleGeoJSON.geojson in Resources */,
+				F69216F728FAAB3A000F0E78 /* gadm41_ZAF_4.json in Resources */,
 				F63969F128F7E777003F5757 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +453,7 @@
 				F69216F328F9A7AB000F0E78 /* GeoJSONHelper.swift in Sources */,
 				CF731FB228F9A327006E7F77 /* StagesView.swift in Sources */,
 				F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */,
+				F6D8B35128FAC40200825434 /* Polygon+extension.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
 				F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */,
 				F69216E528F943FE000F0E78 /* MapLocationDelegate.swift in Sources */,
@@ -638,7 +654,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BlackMap/Preview Content\"";
 				DEVELOPMENT_TEAM = 69XM53S226;
 				ENABLE_PREVIEWS = YES;
-				EXCLUDED_ARCHS = "";
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Displaying the user location on a map";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need this dude";
@@ -652,6 +668,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glucode.EbenPlaygrounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

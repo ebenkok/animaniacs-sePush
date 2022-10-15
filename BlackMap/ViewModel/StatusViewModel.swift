@@ -21,3 +21,18 @@ struct StatusViewModel {
     }
     
 }
+
+
+struct ScheduleViewModel {
+    let apiClient: EskomSeAPIClient
+   
+    func getSchedule(areaID: String) async -> String {
+        let result = try? await apiClient.getAreaInformation(areaId: areaID, testEvent: .current)
+        
+        if let response = result?.data {
+            return "working"
+        }
+        
+        return "not parsed"
+    }
+}

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import shared
 
 struct ModelView: View {
     
@@ -155,6 +156,6 @@ struct ModelView: View {
 
 struct ModelView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView()
+        MapContainerView(scheduleVM: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
     }
 }
