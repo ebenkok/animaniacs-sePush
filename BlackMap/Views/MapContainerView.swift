@@ -23,10 +23,6 @@ struct MapContainerView: View {
     @State var showingOverlays: Bool = false
     let scheduleVM: ScheduleViewModel
     
-    //var tapCoordinates: Binding<CLLocation>
-    //@Binding var tapCoordinates: CGPoint
-    
-    
     //bronson
     @State private var showModel = false
     

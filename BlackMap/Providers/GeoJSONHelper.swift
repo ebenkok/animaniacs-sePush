@@ -39,7 +39,7 @@ class GeoJSONHelper: ObservableObject {
                 if let polygon = geometry as? MKPolygon {
                     let polygonInfo = try? JSONDecoder.init().decode(PolygonInfo.self, from: propData)
                     //call render function to render our polygon shape
-                   
+                    
                     render(overlay: polygon, info: polygonInfo)
                 }
                 
@@ -66,12 +66,10 @@ class GeoJSONHelper: ObservableObject {
                     }
                 }
             }
-    //        if i == 800 {
-                DispatchQueue.main.async {
-                    self.overlays = self.tempOverlay
-                }
-                //break
-      //      }
+            DispatchQueue.main.async {
+                self.overlays = self.tempOverlay
+            }
+            
         }
     }
     
@@ -82,35 +80,23 @@ class GeoJSONHelper: ObservableObject {
         
         let newMapOverlay = MapOverlayer(overlay: overlay, polygonInfo: overlayer.shared.polygonInfo)
         MapOverlays.shared.addOverlay(mapOverlayer: newMapOverlay)
-        // self.mapView.addOverlay(overlay)
-        // self.mapView.setVisibleMapRect(overlay.boundingMapRect, animated: true)
+        
     }
     
 }
 struct PolygonInfo: Codable {
-//    var id, kode, jumlah: Int
-//    let latitude, longitude: Double
-//    let propinsi: String
-//    let sumber: String
     let country: String
     let name1: String
     let name2: String
     let name3: String
     let name4: String
-
+    
     enum CodingKeys: String, CodingKey {
-        //case id = "ID"
-//        case kode = "kode"
         case country = "COUNTRY"
         case name1 = "NAME_1"
         case name2 = "NAME_2"
         case name3 = "NAME_3"
         case name4 = "NAME_4"
-//        case propinsi = "Propinsi"
-//        case sumber = "SUMBER"
-//        case jumlah = "Jumlah"
-//        case latitude = "latitude"
-//        case longitude = "longitude"
     }
 }
 

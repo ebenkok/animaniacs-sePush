@@ -15,10 +15,6 @@ struct MapView: UIViewRepresentable {
     @State var manager = CLLocationManager()
     @State var managerDelegate = MapLocationDelegate()
     @Binding var polygons: [MKOverlay]
-    
-   // var tapCoordinates: Binding<CGPoint>
-    //    var polygonID: Binding<String> = ""
-    
     @EnvironmentObject var mapData: GeoJSONHelper
     
     let map = MKMapView()
@@ -32,57 +28,42 @@ struct MapView: UIViewRepresentable {
         map.showsUserLocation = true
         
         return map
-    }	
+    }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         updateAnnotations(from: uiView)
-        //print($polygons)
-//        let poly = $polygons {
-//            poly.
-//        }
         for item in polygons {
             uiView.addOverlay(item)
-         //   uiView.setVisibleMapRect(item.boundingMapRect, animated: true)
         }
-        //uiView.addOverlays(polygons)
     }
     
     private func updateAnnotations(from mapView: MKMapView) {
         mapView.removeAnnotations(mapView.annotations)
-            let newAnnotations = landmarks.map { LandmarkAnnotation(landmark: $0) }
-            mapView.addAnnotations(newAnnotations)
-            if let selectedAnnotation = newAnnotations.first(where: { $0.id == selectedLandmark?.id }) {
-                mapView.selectAnnotation(selectedAnnotation, animated: true)
-            }
+        let newAnnotations = landmarks.map { LandmarkAnnotation(landmark: $0) }
+        mapView.addAnnotations(newAnnotations)
+        if let selectedAnnotation = newAnnotations.first(where: { $0.id == selectedLandmark?.id }) {
+            mapView.selectAnnotation(selectedAnnotation, animated: true)
+        }
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
-        
-        //map.convert($tapCoordinates, toCoordinateFrom: <#T##UIView?#>)
-        //return MapView.Coordinator(self, tapCoordinatesBinding: tapCoordinates, polygonTitle: polygonID)
-           
     }
     
     final class Coordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelegate {
         var parent: MapView
-
         
-        //var polygonTitle: Binding<String>
-                var gRecognizer = UITapGestureRecognizer()
-                
-                //var tapCoordinatesBinding: Binding<CLLocationCoordinate2D>
-                var coordinate = CLLocationCoordinate2D()
         
-        //init(_ control: MapView, tapCoordinates: Binding<CLLocationCoordinate2D>, polygonTitle: Binding<String>) {
+        var gRecognizer = UITapGestureRecognizer()
+        
+        var coordinate = CLLocationCoordinate2D()
+        
         init(_ control: MapView) {
             self.parent = control
-            //self.tapCoordinatesBinding = tapCoordinates
-            //self.polygonTitle = polygonTitle
             super.init()
             
             self.gRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
-                        self.gRecognizer.delegate = self
+            self.gRecognizer.delegate = self
             self.parent.map.addGestureRecognizer(gRecognizer)
         }
         
@@ -100,20 +81,6 @@ struct MapView: UIViewRepresentable {
                 let renderer = MKPolygonRenderer(polygon: polygon)
                 
                 //MARK: -Custom shape fillColor based on latest renderer data
-//                if overlayer.shared.polygonInfo.jumlah == 0 {
-//                    renderer.fillColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.5)
-//                }
-//                else if overlayer.shared.polygonInfo.jumlah > 0 && overlayer.shared.polygonInfo.jumlah < 100 {
-//                    renderer.fillColor = UIColor(red: 255/255, green: 215/255, blue: 0/255, alpha: 0.5)
-//                }
-//                
-//                else if overlayer.shared.polygonInfo.jumlah > 99 && overlayer.shared.polygonInfo.jumlah < 300 {
-//                    renderer.fillColor = UIColor(red: 255/255, green: 174/255, blue: 66/255, alpha: 0.5)
-//                }
-//                
-//                else if overlayer.shared.polygonInfo.jumlah > 300 {
-//                    renderer.fillColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
-//                }
                 if overlayer.shared.polygonInfo.name1 == "Gauteng" { //36, 76, 179
                     renderer.fillColor = UIColor(red: 199/255, green: 38/255, blue: 84/255, alpha: 0.5)
                     renderer.strokeColor = UIColor(red: 199/255, green: 38/255, blue: 40/255, alpha: 0.5)
@@ -129,8 +96,6 @@ struct MapView: UIViewRepresentable {
                 
                 return renderer
             }
-            //        else if let multiPolygon = overlay as? MKMultiPolygon { ... }
-            //        else if let tileOverlay = overlay as? MKTileOverlay { ... }
             
             if let tileOverlay = overlay as? MKTileOverlay {
                 return MKTileOverlayRenderer(tileOverlay: tileOverlay)
@@ -140,27 +105,24 @@ struct MapView: UIViewRepresentable {
         }
         
         @objc func tapHandler(_ gesture: UITapGestureRecognizer) {
-                   // position on the screen, CGPoint
+            // position on the screen, CGPoint
             let location = gRecognizer.location(in: self.parent.map)
-                   // position on the map, CLLocationCoordinate2D
-                   coordinate = self.parent.map.convert(location, toCoordinateFrom: self.parent.map)
-                   //tapCoordinatesBinding.wrappedValue = coordinate
-//
-                   for overlay: MKOverlay in self.parent.map.overlays {
-                       if let polygon = overlay as? MKPolygon {
-                           let renderer = MKPolygonRenderer(polygon: polygon)
-                           let mapPoint = MKMapPoint(coordinate)
-                           let rendererPoint = renderer.point(for: mapPoint)
-                           if renderer.path.contains(rendererPoint) {
-                               print("Tap inside polygon")
-                               print("Polygon \(polygon.title ?? "no value") has been tapped")
-                               print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
-//                               polygonTitle.wrappedValue = polygon.title!
-                           }
-                       }
-                   }
-               }
-        
+            // position on the map, CLLocationCoordinate2D
+            coordinate = self.parent.map.convert(location, toCoordinateFrom: self.parent.map)
+            
+            for overlay: MKOverlay in self.parent.map.overlays {
+                if let polygon = overlay as? MKPolygon {
+                    let renderer = MKPolygonRenderer(polygon: polygon)
+                    let mapPoint = MKMapPoint(coordinate)
+                    let rendererPoint = renderer.point(for: mapPoint)
+                    if renderer.path.contains(rendererPoint) {
+                        print("Tap inside polygon")
+                        print("Polygon \(polygon.title ?? "no value") has been tapped")
+                        print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
+                    }
+                }
+            }
+        }
     }
     
     
