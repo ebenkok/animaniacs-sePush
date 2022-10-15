@@ -88,9 +88,18 @@ struct MapView: UIViewRepresentable {
 //                else if overlayer.shared.polygonInfo.jumlah > 300 {
 //                    renderer.fillColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5)
 //                }
+                if overlayer.shared.polygonInfo.name1 == "Gauteng" { //36, 76, 179
+                    renderer.fillColor = UIColor(red: 199/255, green: 38/255, blue: 84/255, alpha: 0.5)
+                    renderer.strokeColor = UIColor(red: 199/255, green: 38/255, blue: 40/255, alpha: 0.5)
+                }
                 
-//                renderer.strokeColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.3)
-                renderer.strokeColor = .red
+                
+                if overlayer.shared.polygonInfo.name1 == "WesternCape" { //36, 76, 179
+                    renderer.fillColor = UIColor(red: 36/255, green: 76/255, blue: 179/255, alpha: 0.5)
+                    renderer.strokeColor = UIColor(red: 38/255, green: 36/255, blue: 179/255, alpha: 0.5)
+                }
+                
+                //renderer.strokeColor = .red
                 renderer.lineWidth = 1.5
                 
                 //MARK: -Custom title and subtitle to store detail information
