@@ -16,8 +16,15 @@ struct MapView: UIViewRepresentable {
     @State var managerDelegate = MapLocationDelegate()
     @Binding var polygons: [MKOverlay]
     
+   // var tapCoordinates: Binding<CGPoint>
+    //    var polygonID: Binding<String> = ""
+    
+    @EnvironmentObject var mapData: GeoJSONHelper
+    
+    let map = MKMapView()
+    
     func makeUIView(context: Context) -> MKMapView {
-        let map = MKMapView()
+        
         map.delegate = context.coordinator
         manager.delegate = managerDelegate
         manager.requestWhenInUseAuthorization()
@@ -51,13 +58,32 @@ struct MapView: UIViewRepresentable {
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
+        
+        //map.convert($tapCoordinates, toCoordinateFrom: <#T##UIView?#>)
+        //return MapView.Coordinator(self, tapCoordinatesBinding: tapCoordinates, polygonTitle: polygonID)
+           
     }
     
-    final class Coordinator: NSObject, MKMapViewDelegate {
-        var control: MapView
+    final class Coordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelegate {
+        var parent: MapView
 
+        
+        //var polygonTitle: Binding<String>
+                var gRecognizer = UITapGestureRecognizer()
+                
+                //var tapCoordinatesBinding: Binding<CLLocationCoordinate2D>
+                var coordinate = CLLocationCoordinate2D()
+        
+        //init(_ control: MapView, tapCoordinates: Binding<CLLocationCoordinate2D>, polygonTitle: Binding<String>) {
         init(_ control: MapView) {
-            self.control = control
+            self.parent = control
+            //self.tapCoordinatesBinding = tapCoordinates
+            //self.polygonTitle = polygonTitle
+            super.init()
+            
+            self.gRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
+                        self.gRecognizer.delegate = self
+            self.parent.map.addGestureRecognizer(gRecognizer)
         }
         
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -99,12 +125,8 @@ struct MapView: UIViewRepresentable {
                     renderer.strokeColor = UIColor(red: 38/255, green: 36/255, blue: 179/255, alpha: 0.5)
                 }
                 
-                //renderer.strokeColor = .red
                 renderer.lineWidth = 1.5
                 
-                //MARK: -Custom title and subtitle to store detail information
-                renderer.polygon.title = overlayer.shared.polygonInfo.name4
-                renderer.polygon.subtitle = "\(overlayer.shared.polygonInfo.country)-\(overlayer.shared.polygonInfo.name1)-\(overlayer.shared.polygonInfo.name2)-\(overlayer.shared.polygonInfo.name3)-\(overlayer.shared.polygonInfo.name4)"
                 return renderer
             }
             //        else if let multiPolygon = overlay as? MKMultiPolygon { ... }
@@ -116,6 +138,28 @@ struct MapView: UIViewRepresentable {
                 return MKOverlayRenderer(overlay: overlay)
             }
         }
+        
+        @objc func tapHandler(_ gesture: UITapGestureRecognizer) {
+                   // position on the screen, CGPoint
+            let location = gRecognizer.location(in: self.parent.map)
+                   // position on the map, CLLocationCoordinate2D
+                   coordinate = self.parent.map.convert(location, toCoordinateFrom: self.parent.map)
+                   //tapCoordinatesBinding.wrappedValue = coordinate
+//
+                   for overlay: MKOverlay in self.parent.map.overlays {
+                       if let polygon = overlay as? MKPolygon {
+                           let renderer = MKPolygonRenderer(polygon: polygon)
+                           let mapPoint = MKMapPoint(coordinate)
+                           let rendererPoint = renderer.point(for: mapPoint)
+                           if renderer.path.contains(rendererPoint) {
+                               print("Tap inside polygon")
+                               print("Polygon \(polygon.title ?? "no value") has been tapped")
+                               print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
+//                               polygonTitle.wrappedValue = polygon.title!
+                           }
+                       }
+                   }
+               }
         
     }
     
