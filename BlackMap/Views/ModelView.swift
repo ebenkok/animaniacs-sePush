@@ -34,8 +34,8 @@ struct ModelView: View {
                     .onTapGesture {
                         isShowing = false
                     }
-               mainView
-                .transition(.move(edge: .bottom))
+                mainView
+                    .transition(.move(edge: .bottom))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
@@ -44,6 +44,8 @@ struct ModelView: View {
     }
     
     var mainView: some View {
+        
+        
         VStack {
             //handle
             ZStack{
@@ -55,75 +57,57 @@ struct ModelView: View {
             .background(Color.white.opacity(0.000001))
             .gesture(dragGesture)
             
-           
-                ZStack {
-                    
-                    VStack{
+            
+            
+               
+                    VStack(alignment: .center){
                         
-                        VStack(alignment: .center){
-                            
-                            Text("Mayersdal")
-                                .font(.title)
-                            
-                            Button(action:{}) {
-                                Text("Power on")
-                                    .foregroundColor(.white)
-                                    .padding(.vertical, 20)
-                                    .padding(.horizontal, 130)
-                                    .background(Color.green.opacity(30))
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                
-                                
-                                
-                                
-                                
-                            }
-                            
+                        Text("Mayersdal")
+                            .font(.title)
+                        
+                        Button(action:{}) {
+                            Text("Power on")
+                                .foregroundColor(.white)
+                                .padding(.vertical, 20)
+                                .padding(.horizontal, 130)
+                                .background(Color.green.opacity(30))
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
                             
                         }
-                        
-                        
-                        
-                        StagesView()
-                            .padding(.vertical, 10)
-                            .background(Color.black.opacity(0.015))
-                            .cornerRadius(20)
-                            .padding(.horizontal, 30)
-                            .padding(.top, 20)
-                        
-                        TimesView()
-                            .padding(.vertical, 10)
-                            .background(Color.black.opacity(0.015))
-                            .cornerRadius(20)
-                            .padding(.horizontal, 30)
-                            .padding(.top, 20)
-                        
+                    
+                
+                ScrollView {
+                    VStack {
+                        StagesView(slot: LoadsheddingSlot(avatar: "house", level: "Stage 3", area: "Mayersdal", times: [Times(timeSlot: "12:00 - 14:00", avatar: "lock.slash", warning: "Power Outages"), Times(timeSlot: "15:00 - 17:00", avatar: "lock.slash", warning: "Power Outages")]))
                         
                         
                         
                         
                     }
-                    
-                    
-                    
+                   
                 }
-                .frame(maxHeight: .infinity)
-                .padding(.bottom, 35)
+                
+                
                 
             }
-            .frame(height: curHeight)
-            .frame(maxWidth: .infinity)
-            .background(
-                //rounded corners hack
-                ZStack{
-                    RoundedRectangle(cornerRadius: 30)
-                    Rectangle()
-                        .frame(height: curHeight / 2)
-                }
-                    .foregroundColor(.white)
-            )
-            .animation(isDragging ? nil : .easeInOut(duration: 0.45))
-            .onDisappear{ curHeight = minHeight }
+            .frame(maxHeight: .infinity)
+            .padding(.bottom, 35)
+            
+        }
+        .frame(height: curHeight)
+        .frame(maxWidth: .infinity)
+        .background(
+            //rounded corners hack
+            ZStack{
+                RoundedRectangle(cornerRadius: 30)
+                Rectangle()
+                    .frame(height: curHeight / 2)
+            }
+                .foregroundColor(.white)
+        )
+        .animation(isDragging ? nil : .easeInOut(duration: 0.45))
+        .onDisappear{ curHeight = minHeight }
+        
         
     }
     
@@ -153,7 +137,7 @@ struct ModelView: View {
                 }
             }
     }
-    
+        
 }
 
 struct ModelView_Previews: PreviewProvider {

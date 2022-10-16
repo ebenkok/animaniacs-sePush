@@ -28,67 +28,76 @@ struct MapContainerView: View {
     
 
     var body: some View {
-        //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
-        ZStack {
-            MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
+        NavigationView{
+            //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
+            ZStack {
+                MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
+                    .navigationTitle("Stage 2")
+                    .navigationBarTitleDisplayMode(.inline)
                     .edgesIgnoringSafeArea(.vertical)
-            //bronson
-
-            SliderView()
-
-            //SliderView()
-
-            
-            HStack {
-                Button(action:{ showModel = true}) {
-                    Text("click me")
-                        .font(.system(size: 40, weight: .heavy, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 40)
-                        .background(Color.black.opacity(0.3))
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
-                }
-                .offset(y: -300)
+                   
+                    
+                //bronson
                 
-                Button(action:{
-                    DispatchQueue.global().async {
-                        showingOverlays.toggle()
-                        jsonProvider.loadGeoJson()
+                //            SliderView()
+                
+                //SliderView()
+                
+                
+                HStack {
+                    Button(action:{ showModel = true}) {
+                        Text("click me")
+                            .font(.system(size: 40, weight: .heavy, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, 40)
+                            .background(Color.black.opacity(0.3))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     }
-                }) {
-                    Image(systemName: showingOverlays ? "map.fill" : "map")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                }
-                .offset(y: -300)
-                
-                Button(action:{
-                    DispatchQueue.global().async {
-                        Task {
-                            // BRONSON put your looked up value in here
-                            let result = await scheduleVM.getSchedule(areaID: "eskde-10-fourwaysext10cityofjohannesburggauteng")
+                    .offset(y: -300)
+                    
+                    Button(action:{
+                        DispatchQueue.global().async {
+                            showingOverlays.toggle()
+                            jsonProvider.loadGeoJson()
                         }
+                    }) {
+                        Image(systemName: showingOverlays ? "map.fill" : "map")
+                            .resizable()
+                            .frame(width: 40, height: 40)
                     }
-                }) {
-                    Text("Get Eskom Data")
-                }
-                .offset(y: -300)
+                    .offset(y: -300)
+                    
+                    Button(action:{
+                        DispatchQueue.global().async {
+                            Task {
+                                // BRONSON put your looked up value in here
+                                //    let result = await scheduleVM.getSchedule(areaID: "eskde-10-fourwaysext10cityofjohannesburggauteng")
+                            }
+                        }
+                    }) {
+                        Text("Get Eskom Data")
+                    }
+                    .offset(y: -300)
+                    
+                }.padding(.top, 200)
+                ModelView(isShowing: $showModel)
                 
+                //            VStack {
+                //                Spacer()
+                //                Button("Next")  {
+                //                    self.selectNextLandmark()
+                //                }
+                //            }
+            }.onAppear {
+                //            DispatchQueue.global().async {
+                //                Task {
+                //                    scheduleVM.getStatus()
+                //                }
+                //
+                //            }
             }
-            ModelView(isShowing: $showModel)
-            
-//            VStack {
-//                Spacer()
-//                Button("Next")  {
-//                    self.selectNextLandmark()
-//                }
-//            }
-        }.onAppear {
-            
-            
         }
-        
     }
     
     private func selectNextLandmark() {

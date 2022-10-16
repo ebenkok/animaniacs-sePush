@@ -13,7 +13,11 @@
 		CF731FB028F97233006E7F77 /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FAF28F97233006E7F77 /* ModelView.swift */; };
 		CF731FB228F9A327006E7F77 /* StagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FB128F9A327006E7F77 /* StagesView.swift */; };
 		CF731FB428F9A927006E7F77 /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FB328F9A927006E7F77 /* TimesView.swift */; };
+
 		CF731FB828FB2A9C006E7F77 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FB728FB2A9C006E7F77 /* SliderView.swift */; };
+
+		CF731FB628F9ACE0006E7F77 /* PullUpModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF731FB528F9ACE0006E7F77 /* PullUpModal.swift */; };
+
 		F63969ED28F7E776003F5757 /* BlackMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969EC28F7E776003F5757 /* BlackMapApp.swift */; };
 		F63969EF28F7E776003F5757 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63969EE28F7E776003F5757 /* ContentView.swift */; };
 		F63969F128F7E777003F5757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63969F028F7E777003F5757 /* Assets.xcassets */; };
@@ -71,7 +75,11 @@
 		CF731FAF28F97233006E7F77 /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 		CF731FB128F9A327006E7F77 /* StagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesView.swift; sourceTree = "<group>"; };
 		CF731FB328F9A927006E7F77 /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesView.swift; sourceTree = "<group>"; };
+
 		CF731FB728FB2A9C006E7F77 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+
+		CF731FB528F9ACE0006E7F77 /* PullUpModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullUpModal.swift; sourceTree = "<group>"; };
+
 		D02571AEC7D551297C424324 /* Pods-BlackMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMapTests.release.xcconfig"; path = "Target Support Files/Pods-BlackMapTests/Pods-BlackMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF230EF0B2498EACC569060E /* Pods-BlackMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap.debug.xcconfig"; path = "Target Support Files/Pods-BlackMap/Pods-BlackMap.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5F80DCA96C4F7EB4B6602B /* Pods-BlackMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackMap.release.xcconfig"; path = "Target Support Files/Pods-BlackMap/Pods-BlackMap.release.xcconfig"; sourceTree = "<group>"; };
@@ -269,7 +277,11 @@
 				CF731FAF28F97233006E7F77 /* ModelView.swift */,
 				CF731FB128F9A327006E7F77 /* StagesView.swift */,
 				CF731FB328F9A927006E7F77 /* TimesView.swift */,
+
 				CF731FB728FB2A9C006E7F77 /* SliderView.swift */,
+
+				CF731FB528F9ACE0006E7F77 /* PullUpModal.swift */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,6 +511,7 @@
 				F6D8B35128FAC40200825434 /* Polygon+extension.swift in Sources */,
 				CF731FB828FB2A9C006E7F77 /* SliderView.swift in Sources */,
 				F6CA9DCA28F82CE1003ECD03 /* AccessTokenProviderImplementation.swift in Sources */,
+				CF731FB628F9ACE0006E7F77 /* PullUpModal.swift in Sources */,
 				F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */,
 				F69216E528F943FE000F0E78 /* MapLocationDelegate.swift in Sources */,
 				F69216E328F943B6000F0E78 /* LandMark.swift in Sources */,

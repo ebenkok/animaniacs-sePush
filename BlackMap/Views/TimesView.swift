@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct TimesView: View {
+    let time : Times
+    
+    
     var body: some View {
         HStack(spacing: 20){
-            Image(systemName: "lock.slash")
+            Image(systemName: time.avatar)
                 .resizable()
                 .aspectRatio( contentMode: .fit)
                 .frame(width: 30)
                 
             
             VStack(alignment: .leading, spacing: 10){
-                Text("12:00 - 14:00")
+                Text(time.timeSlot)
                     .bold()
                     .font(.system(size: 20))
-                Text("Power Outages")
+                Text(time.warning)
                     .foregroundColor(.red)
             }
             Spacer()
@@ -33,8 +36,9 @@ struct TimesView: View {
 }
 
 
+
 struct TimesView_Previews: PreviewProvider {
     static var previews: some View {
-        TimesView()
+        TimesView(time: Times(timeSlot: "12:00 - 14:00", avatar: "lock.slash", warning: "Power Outages"))
     }
 }
