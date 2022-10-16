@@ -142,6 +142,6 @@ struct ModelView: View {
 
 struct ModelView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView(scheduleVM: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
+        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
     }
 }

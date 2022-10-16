@@ -23,8 +23,21 @@ struct MapContainerView: View {
     @StateObject var overlaySettings = MapLayerSettings()
     let scheduleVM: ScheduleViewModel
     
+    @State var status = "Stage 2"
     //bronson
     @State private var showModel = false
+    
+    
+    init(vm: ScheduleViewModel) {
+        scheduleVM = vm
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.red]
+        
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
+        UINavigationBar.appearance().backgroundColor = .lightGray
+
+    }
     
     
     var body: some View {
@@ -32,17 +45,8 @@ struct MapContainerView: View {
             //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
             ZStack {
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
-                
                     .edgesIgnoringSafeArea(.vertical)
-                
-                
-                //bronson
-                
-                //            SliderView()
-                
                 //SliderView()
-                
-                
                 HStack {
                     Button(action:{ showModel = true}) {
                         Text("click me")
@@ -73,7 +77,8 @@ struct MapContainerView: View {
                         DispatchQueue.global().async {
                             Task {
                                 // BRONSON put your looked up value in here
-                                //    let result = await scheduleVM.getSchedule(areaID: "eskde-10-fourwaysext10cityofjohannesburggauteng")
+                                // let result = await scheduleVM.getSchedule(areaID: "eskde-10-fourwaysext10cityofjohannesburggauteng")
+                                
                             }
                         }
                     }) {
@@ -83,24 +88,15 @@ struct MapContainerView: View {
                     
                 }.padding(.top, 200)
                 ModelView(isShowing: $showModel)
-                
-                //            VStack {
-                //                Spacer()
-                //                Button("Next")  {
-                //                    self.selectNextLandmark()
-                //                }
-                //            }
             }.onAppear {
-                //            DispatchQueue.global().async {
-                //                Task {
-                //                    scheduleVM.getStatus()
-                //                }
-                //
-                //            }
+                Task {
+                    let statusResult = try await scheduleVM.getStatus()
+                    status = statusResult
+                }
             }
-        }  
+        }
         .environmentObject(overlaySettings)
-        .navigationTitle("Stage 2")
+        .navigationTitle(status).font(.title).background(.ultraThinMaterial)
         .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -117,6 +113,6 @@ struct MapContainerView: View {
 
 struct OutageMapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView(scheduleVM: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
+        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
     }
 }

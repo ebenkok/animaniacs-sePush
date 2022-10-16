@@ -26,24 +26,25 @@ struct StatusViewModel {
 struct ScheduleViewModel {
     let apiClient: EskomSeAPIClient
     
-    func getStatus () async {
+    func getStatus () async -> String {
         let result = try? await apiClient.getStatus()
         
         if let response = result?.data {
-            print(response)
-            
+            return "Stage \(response.status.eskom.stage)"
         }
         
-        func getSchedule(areaID: String) async -> String {
-            let result = try? await apiClient.getAreaInformation(areaId: areaID, testEvent: .current)
-            
-            if let response = result?.data {
-                return "working"
-            }
-            
-            
-            return "not parsed"
+        return "Not set"
+    }
+    
+    func getSchedule(areaID: String) async -> String {
+        let result = try? await apiClient.getAreaInformation(areaId: areaID, testEvent: .current)
+        
+        if let response = result?.data {
+            return "working"
         }
+        
+        
+        return "not parsed"
     }
     
 }
