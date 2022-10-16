@@ -55,10 +55,11 @@ struct ModelView: View {
             .background(Color.white.opacity(0.000001))
             .gesture(dragGesture)
             
-            
-            ZStack {
-                VStack{
+           
+                ZStack {
                     
+                    VStack{
+                        
                         VStack(alignment: .center){
                             
                             Text("Mayersdal")
@@ -71,58 +72,59 @@ struct ModelView: View {
                                     .padding(.horizontal, 130)
                                     .background(Color.green.opacity(30))
                                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                                    
-                                   
-                               
-                               
+                                
+                                
+                                
+                                
                                 
                             }
                             
                             
                         }
                         
-                       
-                    
-                    StagesView()
-                        .padding(.vertical, 10)
-                        .background(Color.black.opacity(0.015))
-                        .cornerRadius(20)
-                        .padding(.horizontal, 30)
-                        .padding(.top, 20)
-                    
-                    TimesView()
-                        .padding(.vertical, 10)
-                        .background(Color.black.opacity(0.015))
-                        .cornerRadius(20)
-                        .padding(.horizontal, 30)
-                        .padding(.top, 20)
-                    
-               
-                 
-                   
                         
+                        
+                        StagesView()
+                            .padding(.vertical, 10)
+                            .background(Color.black.opacity(0.015))
+                            .cornerRadius(20)
+                            .padding(.horizontal, 30)
+                            .padding(.top, 20)
+                        
+                        TimesView()
+                            .padding(.vertical, 10)
+                            .background(Color.black.opacity(0.015))
+                            .cornerRadius(20)
+                            .padding(.horizontal, 30)
+                            .padding(.top, 20)
+                        
+                        
+                        
+                        
+                        
+                    }
+                    
+                    
+                    
                 }
-              
-               
+                .frame(maxHeight: .infinity)
+                .padding(.bottom, 35)
                 
             }
-            .frame(maxHeight: .infinity)
-            .padding(.bottom, 35)
-            
-        }
-        .frame(height: curHeight)
-        .frame(maxWidth: .infinity)
-        .background(
-        //rounded corners hack
-            ZStack{
-                RoundedRectangle(cornerRadius: 30)
-                Rectangle()
-                    .frame(height: curHeight / 2)
-            }
-                .foregroundColor(.white)
-        )
-        .animation(isDragging ? nil : .easeInOut(duration: 0.45))
-        .onDisappear{ curHeight = minHeight }
+            .frame(height: curHeight)
+            .frame(maxWidth: .infinity)
+            .background(
+                //rounded corners hack
+                ZStack{
+                    RoundedRectangle(cornerRadius: 30)
+                    Rectangle()
+                        .frame(height: curHeight / 2)
+                }
+                    .foregroundColor(.white)
+            )
+            .animation(isDragging ? nil : .easeInOut(duration: 0.45))
+            .onDisappear{ curHeight = minHeight }
+        
     }
     
     @State private var prevDragTranslation = CGSize.zero

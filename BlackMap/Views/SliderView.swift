@@ -23,8 +23,7 @@ struct SliderView: View {
                     Text(
                     String(format: "+%.2f", sliderValue)
                     )
-                    Spacer()
-                    Text("+12:00")
+                    
                 }
                 
                 
