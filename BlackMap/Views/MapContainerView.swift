@@ -27,6 +27,7 @@ struct MapContainerView: View {
     //bronson
     @State private var showModel = false
     
+    @StateObject var selectedWard = MapArea()
     
     init(vm: ScheduleViewModel) {
         scheduleVM = vm
@@ -78,6 +79,7 @@ struct MapContainerView: View {
                             Task {
                                 // BRONSON put your looked up value in here
                                 // let result = await scheduleVM.getSchedule(areaID: "eskde-10-fourwaysext10cityofjohannesburggauteng")
+                                let result = await scheduleVM.getSchedule(areaID: selectedWard.ward.eskomSePushID)
                                 
                             }
                         }
@@ -87,13 +89,21 @@ struct MapContainerView: View {
                     .offset(y: -300)
                     
                 }.padding(.top, 200)
-                ModelView(isShowing: $showModel)
+                if (selectedWard.ward.eskomSePushID != "") {
+                    ModelView(isShowing: $showModel)
+                }
+                
             }.onAppear {
                 Task {
-                    let statusResult = try await scheduleVM.getStatus()
-                    status = statusResult
+                    //let statusResult = try await scheduleVM.getStatus()
+                    //status = statusResult
                 }
-            }
+            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { _ in
+                Task {
+                    let result = await scheduleVM.getSchedule(areaID: selectedWard.ward.eskomSePushID)
+                }
+                ModelView(isShowing: $showModel)
+            })
         }
         .environmentObject(overlaySettings)
         .navigationTitle(status).font(.title).background(.ultraThinMaterial)

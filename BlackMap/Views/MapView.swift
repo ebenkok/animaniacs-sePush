@@ -67,6 +67,8 @@ struct MapView: UIViewRepresentable {
         var gRecognizer = UITapGestureRecognizer()
         var coordinate = CLLocationCoordinate2D()
         
+        
+        
         init(_ control: MapView) {
             self.parent = control
             super.init()
@@ -157,10 +159,14 @@ class MappingWriter {
     
     var zones: [Ward] = [Ward]()
     
+    //@ObservedObject var selectedWard: MapArea
+    
     init() {
 //        guard let url = Bundle.main.url(forResource: "WardMapping", withExtension: "json") else {
 //            fatalError("unable to get geojson")
 //        }
+        
+        
         let filename = "mappedData.json"
         let url = getDocumentsDirectory().appendingPathComponent(filename)
        // let base = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
@@ -174,7 +180,6 @@ class MappingWriter {
                 let data = try Data(contentsOf:  URL(string: fileURL)!)
                 wardMapping = try JSONDecoder().decode([Ward].self, from: data)
                 zones = wardMapping
-                //Foundation.URL    "/Users/eben@glucode.com/Library/Developer/CoreSimulator/Devices/547B99F1-61A7-45B4-8E3B-432D51858950/data/Containers/Data/Application/766DC9B8-A137-48AA-8107-78E1DD789740/Documents/mappedData.json"    
             } catch {
                 fatalError("Unable to decode JSON")
             }
@@ -194,6 +199,7 @@ class MappingWriter {
     }
     
     func addWardItem(ward: Ward) async {
+        var publishWard = ward
         if !zones.contains { $0.polygonID == ward.polygonID } {
             
             let result = try? await api.getAreasNearby(lat: Double(ward.coordinates.latitude)!, lon: Double(ward.coordinates.longitude)!)
@@ -203,9 +209,14 @@ class MappingWriter {
                 print("Id: \(firstArea.id)")
                 //let parsed = try JSONDecoder().decode(SharedNetworkResponse<SharedAreasNearbyResponse.self>, from: response)
                 let newWard = Ward(polygonID: ward.polygonID, coordinates: ward.coordinates, eskomSePushID: firstArea.id)
+                publishWard = newWard
                 addAndPersist(ward: newWard)
             }
         }
+        
+        let notification = Notification(name: Notification.Name(rawValue: "MapArea") , userInfo: ["publishWard": publishWard])
+        NotificationCenter.default.post(notification)
+        //self.selectedWard.ward = publishWard
     }
     
     private func getDocumentsDirectory() -> URL {
@@ -223,17 +234,6 @@ class MappingWriter {
     }
     
     private func persist() {
-        //        guard let url = Bundle.main.url(forResource: "WardMapping", withExtension: "json") else {
-        //            fatalError("unable to get geojson")
-        //        }
-        //        do {
-        //            let jsonData = try JSONEncoder().encode(zones)
-        //            try jsonData.write(to: url)
-        //
-        //        } catch {
-        //            fatalError("Unable to write to file:\(error)")
-        //        }
-        
         let filename = "mappedData.json"
         let url = getDocumentsDirectory().appendingPathComponent(filename)
         let base = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
@@ -241,12 +241,6 @@ class MappingWriter {
         let fileURL = "file://\(url.path)"
         let theURL = URL(string: fileURL)!
         
-//        let pathComponent = url.appendingPathComponent(filename)
-//        let filePath = pathComponent.path
-//        let fileManager = FileManager.default
-        
-        //
-        //let url = getDocumentsDirectory().appendingPathComponent("mappedData.json")
         do {
             let jsonData = try JSONEncoder().encode(zones)
             try jsonData.write(to: theURL)
@@ -254,8 +248,6 @@ class MappingWriter {
         } catch {
             fatalError("Unable to write to file:\(error)")
         }
-    
-        
     }
     
     
@@ -283,4 +275,8 @@ struct WardCoordinate: Codable {
 
 class MapLayerSettings: ObservableObject {
     @Published var overlaysVisible = false
+}
+
+class MapArea: ObservableObject {
+    @Published var ward = Ward(polygonID: "", coordinates: WardCoordinate(longitude: "", latitude: ""), eskomSePushID: "")
 }
