@@ -30,6 +30,7 @@ struct ScheduleViewModel {
         let result = try? await apiClient.getAreaInformation(areaId: areaID, testEvent: .current)
         
         if let response = result?.data {
+            
             return "working"
         }
         

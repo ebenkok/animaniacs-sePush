@@ -50,6 +50,7 @@ class GeoJSONHelper: ObservableObject {
                             print("---------")
                             print(polygonInfo)
                             poly.title = "\(polygonInfo.country)-\(polygonInfo.name1)-\(polygonInfo.name2)-\(polygonInfo.name3)-\(polygonInfo.name4)"
+                            poly.subtitle = "\(polygonInfo.id)"
                             render(overlay: poly, info: polygonInfo)
                         }
                         
@@ -90,6 +91,7 @@ struct PolygonInfo: Codable {
     let name2: String
     let name3: String
     let name4: String
+    let id: String
     
     enum CodingKeys: String, CodingKey {
         case country = "COUNTRY"
@@ -97,6 +99,7 @@ struct PolygonInfo: Codable {
         case name2 = "NAME_2"
         case name3 = "NAME_3"
         case name4 = "NAME_4"
+        case id = "GID_4"
     }
 }
 
@@ -121,7 +124,7 @@ class MapOverlays {
 
 //Track the latest Shape Overlay
 class overlayer {
-    static var shared = overlayer(polygonInfo: PolygonInfo(country: "SA", name1: "asda", name2: "1212", name3: "2323", name4: "3232"))
+    static var shared = overlayer(polygonInfo: PolygonInfo(country: "SA", name1: "asda", name2: "1212", name3: "2323", name4: "3232", id: "asdad"))
     var polygonInfo : PolygonInfo
     
     init(polygonInfo: PolygonInfo){
