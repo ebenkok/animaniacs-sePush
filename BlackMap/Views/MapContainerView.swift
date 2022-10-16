@@ -20,7 +20,7 @@ struct MapContainerView: View {
     @ObservedObject var jsonProvider = GeoJSONHelper()
     
     @State var selectedLandmark: Landmark? = nil
-    @State var showingOverlays: Bool = false
+    @StateObject var overlaySettings = MapLayerSettings()
     let scheduleVM: ScheduleViewModel
     
     //bronson
@@ -32,13 +32,7 @@ struct MapContainerView: View {
         ZStack {
             MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.vertical)
-            //bronson
-
             SliderView()
-
-            //SliderView()
-
-            
             HStack {
                 Button(action:{ showModel = true}) {
                     Text("click me")
@@ -52,12 +46,14 @@ struct MapContainerView: View {
                 .offset(y: -300)
                 
                 Button(action:{
+                    overlaySettings.overlaysVisible.toggle()
                     DispatchQueue.global().async {
-                        showingOverlays.toggle()
-                        jsonProvider.loadGeoJson()
+                        if overlaySettings.overlaysVisible {
+                            jsonProvider.loadGeoJson()
+                        }
                     }
                 }) {
-                    Image(systemName: showingOverlays ? "map.fill" : "map")
+                    Image(systemName: overlaySettings.overlaysVisible ? "map.fill" : "map")
                         .resizable()
                         .frame(width: 40, height: 40)
                 }
@@ -87,7 +83,7 @@ struct MapContainerView: View {
         }.onAppear {
             
             
-        }
+        }.environmentObject(overlaySettings)
         
     }
     

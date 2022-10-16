@@ -18,6 +18,8 @@ struct MapView: UIViewRepresentable {
     @Binding var polygons: [MKOverlay]
     @EnvironmentObject var mapData: GeoJSONHelper
     
+    @EnvironmentObject var overlaySettings: MapLayerSettings
+    
     let map = MKMapView()
     
     let mapWriter = MappingWriter()
@@ -35,8 +37,13 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         updateAnnotations(from: uiView)
-        for item in polygons {
-            uiView.addOverlay(item)
+        uiView.removeOverlays(uiView.overlays)
+        if overlaySettings.overlaysVisible {
+            for item in polygons {
+                if uiView.overlays.first(where: { $0.subtitle == item.subtitle}) == nil {
+                        uiView.addOverlay(item)
+                }
+            }
         }
     }
     
@@ -120,7 +127,7 @@ struct MapView: UIViewRepresentable {
                         let rendererPoint = renderer.point(for: mapPoint)
                         
                         if renderer.path.contains(rendererPoint) {
-                            renderer.invalidatePath()
+                            //renderer.invalidatePath()
                             renderer.fillColor = .yellow
                             print("Tap inside polygon")
                             print("Polygon \(polygon.title ?? "no value") has been tapped")
@@ -141,8 +148,6 @@ struct MapView: UIViewRepresentable {
             }
         }
     }
-    
-    
 }
 
 
@@ -274,4 +279,8 @@ struct Ward: Codable {
 struct WardCoordinate: Codable {
     let longitude: String
     let latitude: String
+}
+
+class MapLayerSettings: ObservableObject {
+    @Published var overlaysVisible = false
 }

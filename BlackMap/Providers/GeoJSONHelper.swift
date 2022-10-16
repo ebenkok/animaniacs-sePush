@@ -15,6 +15,9 @@ class GeoJSONHelper: ObservableObject {
     var tempOverlay = [MKOverlay]()
     
     func loadGeoJson() {
+        tempOverlay.removeAll()
+        print(MapOverlays.shared.returnOverlayList().count)
+        MapOverlays.shared.clearAll()
         guard let url = Bundle.main.url(forResource: "Gauteng", withExtension: "geojson") else {
             fatalError("unable to get geojson")
         }
@@ -113,8 +116,13 @@ class MapOverlays {
     private var overlayList = [MapOverlayer]()
     static var shared = MapOverlays()
     
+    
     func addOverlay(mapOverlayer: MapOverlayer) {
         MapOverlays.shared.overlayList.append(mapOverlayer)
+    }
+    
+    func clearAll() {
+        MapOverlays.shared.overlayList.removeAll()
     }
     
     func returnOverlayList() -> [MapOverlayer] {
