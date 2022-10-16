@@ -1,4 +1,4 @@
-//
+ //
 //  MapView.swift
 //  BlackMap
 //
@@ -112,13 +112,23 @@ struct MapView: UIViewRepresentable {
             
             for overlay: MKOverlay in self.parent.map.overlays {
                 if let polygon = overlay as? MKPolygon {
-                    let renderer = MKPolygonRenderer(polygon: polygon)
-                    let mapPoint = MKMapPoint(coordinate)
-                    let rendererPoint = renderer.point(for: mapPoint)
-                    if renderer.path.contains(rendererPoint) {
-                        print("Tap inside polygon")
-                        print("Polygon \(polygon.title ?? "no value") has been tapped")
-                        print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
+                    if let renderer = parent.map.renderer(for: polygon) as? MKPolygonRenderer {
+                        //let renderer = MKPolygonRenderer(polygon: polygon)
+                        let mapPoint = MKMapPoint(coordinate)
+                        let rendererPoint = renderer.point(for: mapPoint)
+                        
+                        if renderer.path.contains(rendererPoint) {
+                            renderer.invalidatePath()
+                            renderer.fillColor = .yellow
+                            print("Tap inside polygon")
+                            print("Polygon \(polygon.title ?? "no value") has been tapped")
+                            print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
+                            print("Coordinates: lon:\(coordinate.longitude), lat:\(coordinate.latitude)")
+                            let polyIndex = self.parent.map.overlays.index{ $0 === polygon }!
+                            ///let circleIndex = polygonArray.index{$0 === circle}!
+                            break
+                            
+                        }
                     }
                 }
             }
