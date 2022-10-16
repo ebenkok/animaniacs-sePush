@@ -41,6 +41,7 @@
 		F6D8B36228FB18F600825434 /* Mpumalanga.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35B28FB18F600825434 /* Mpumalanga.geojson */; };
 		F6D8B36328FB18F600825434 /* KwaZuluNatal.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35C28FB18F600825434 /* KwaZuluNatal.geojson */; };
 		F6D8B36528FB18F600825434 /* NorthWest.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35E28FB18F600825434 /* NorthWest.geojson */; };
+		F6D8B36728FC30B900825434 /* WardMapping.json in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B36628FC30B900825434 /* WardMapping.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		F6D8B35B28FB18F600825434 /* Mpumalanga.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mpumalanga.geojson; sourceTree = "<group>"; };
 		F6D8B35C28FB18F600825434 /* KwaZuluNatal.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KwaZuluNatal.geojson; sourceTree = "<group>"; };
 		F6D8B35E28FB18F600825434 /* NorthWest.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NorthWest.geojson; sourceTree = "<group>"; };
+		F6D8B36628FC30B900825434 /* WardMapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WardMapping.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		F69216F528FAAB12000F0E78 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F6D8B36628FC30B900825434 /* WardMapping.json */,
 				F6D8B35628FB16D800825434 /* Gauteng.geojson */,
 				F6D8B35C28FB18F600825434 /* KwaZuluNatal.geojson */,
 				F6D8B35828FB18F600825434 /* Limpopo.geojson */,
@@ -382,6 +385,7 @@
 				F6D8B35528FB154500825434 /* Freestate.geojson in Resources */,
 				F6D8B36328FB18F600825434 /* KwaZuluNatal.geojson in Resources */,
 				F6D8B35F28FB18F600825434 /* Limpopo.geojson in Resources */,
+				F6D8B36728FC30B900825434 /* WardMapping.json in Resources */,
 				F6D8B36028FB18F600825434 /* NorthernCape.geojson in Resources */,
 				F63969F428F7E778003F5757 /* Preview Assets.xcassets in Resources */,
 				F6D8B36528FB18F600825434 /* NorthWest.geojson in Resources */,

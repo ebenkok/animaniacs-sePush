@@ -1,0 +1,138 @@
+[
+  {
+    "eskomSePushID": "tshwane-8-queenswood",
+    "coordinates": {
+      "longitude": "28.25291513817558",
+      "latitude": "-25.726880452963428"
+    },
+    "polygonID": "ZAF.3.2.1.89_1"
+  },
+  {
+    "eskomSePushID": "tshwane-8-waterkloofridge",
+    "coordinates": {
+      "longitude": "28.245041992333796",
+      "latitude": "-25.793910672930508"
+    },
+    "polygonID": "ZAF.3.2.1.43_1"
+  },
+  {
+    "eskomSePushID": "tshwane-11-villieria",
+    "coordinates": {
+      "longitude": "28.253167244489845",
+      "latitude": "-25.708873949314608"
+    },
+    "polygonID": "ZAF.3.2.1.54_1"
+  },
+  {
+    "eskomSePushID": "tshwane-8-queenswood",
+    "coordinates": {
+      "longitude": "28.23016477502003",
+      "latitude": "-25.726298553519115"
+    },
+    "polygonID": "ZAF.3.2.1.55_1"
+  },
+  {
+    "eskomSePushID": "tshwane-16-sinoville",
+    "coordinates": {
+      "longitude": "28.223527248262485",
+      "latitude": "-25.7004184912426"
+    },
+    "polygonID": "ZAF.3.2.1.56_1"
+  },
+  {
+    "eskomSePushID": "tshwane-12-montanapark",
+    "coordinates": {
+      "longitude": "28.24687303817211",
+      "latitude": "-25.68226815829692"
+    },
+    "polygonID": "ZAF.3.2.1.51_1"
+  },
+  {
+    "eskomSePushID": "tshwane-6-hatfield",
+    "coordinates": {
+      "longitude": "28.25763041020781",
+      "latitude": "-25.749905328323152"
+    },
+    "polygonID": "ZAF.3.2.1.87_1"
+  },
+  {
+    "eskomSePushID": "tshwane-3-sunnyside",
+    "coordinates": {
+      "longitude": "28.222268404903417",
+      "latitude": "-25.747431475666943"
+    },
+    "polygonID": "ZAF.3.2.1.98_1"
+  },
+  {
+    "eskomSePushID": "tshwane-15-silverton",
+    "coordinates": {
+      "longitude": "28.283379443196424",
+      "latitude": "-25.750523783437473"
+    },
+    "polygonID": "ZAF.3.2.1.47_1"
+  },
+  {
+    "eskomSePushID": "tshwane-6-brooklyn",
+    "coordinates": {
+      "longitude": "28.208650025709915",
+      "latitude": "-25.765674927751704"
+    },
+    "polygonID": "ZAF.3.2.1.61_1"
+  },
+  {
+    "eskomSePushID": "tshwane-8-queenswood",
+    "coordinates": {
+      "longitude": "28.23405573825866",
+      "latitude": "-25.743411355228687"
+    },
+    "polygonID": "ZAF.3.2.1.58_1"
+  },
+  {
+    "eskomSePushID": "tshwane-11-gezina",
+    "coordinates": {
+      "longitude": "28.198235974114084",
+      "latitude": "-25.73279346170399"
+    },
+    "polygonID": "ZAF.3.2.1.60_1"
+  },
+  {
+    "eskomSePushID": "tshwane-11-gezina",
+    "coordinates": {
+      "longitude": "28.191827324157288",
+      "latitude": "-25.719493983483105"
+    },
+    "polygonID": "ZAF.3.2.1.1_1"
+  },
+  {
+    "eskomSePushID": "tshwane-16-sinoville",
+    "coordinates": {
+      "longitude": "28.20853558730957",
+      "latitude": "-25.68546529549633"
+    },
+    "polygonID": "ZAF.3.2.1.52_1"
+  },
+  {
+    "eskomSePushID": "tshwane-8-derdepoort",
+    "coordinates": {
+      "longitude": "28.28120508215696",
+      "latitude": "-25.67391395148701"
+    },
+    "polygonID": "ZAF.3.2.1.92_1"
+  },
+  {
+    "eskomSePushID": "tshwane-3-garsfontein",
+    "coordinates": {
+      "longitude": "28.291390251713352",
+      "latitude": "-25.794013713935357"
+    },
+    "polygonID": "ZAF.3.2.1.46_1"
+  },
+  {
+    "eskomSePushID": "tshwane-3-garsfontein",
+    "coordinates": {
+      "longitude": "28.292191336232122",
+      "latitude": "-25.787728237436752"
+    },
+    "polygonID": "ZAF.3.2.1.45_1"
+  }
+]
