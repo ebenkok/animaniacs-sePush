@@ -32,8 +32,7 @@ struct MapContainerView: View {
             //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
             ZStack {
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
-                    .navigationTitle("Stage 2")
-                    .navigationBarTitleDisplayMode(.inline)
+                  
                     .edgesIgnoringSafeArea(.vertical)
                    
                     
@@ -97,7 +96,8 @@ struct MapContainerView: View {
                 //
                 //            }
             }
-        }
+        }  .navigationTitle("Stage 2")
+            .navigationBarTitleDisplayMode(.inline)
     }
     
     private func selectNextLandmark() {
