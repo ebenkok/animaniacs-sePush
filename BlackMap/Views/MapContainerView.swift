@@ -48,17 +48,17 @@ struct MapContainerView: View {
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.vertical)
                 //                SliderView()
-                HStack {
-                    Button(action:{ showModel = true}) {
-                        Text("click me")
-                            .font(.system(size: 40, weight: .heavy, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.vertical, 20)
-                            .padding(.horizontal, 40)
-                            .background(Color.black.opacity(0.3))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                    }
-                    .offset(y: -300)
+                VStack {
+//                    Button(action:{ showModel = true}) {
+//                        Text("click me")
+//                            .font(.system(size: 40, weight: .heavy, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.vertical, 20)
+//                            .padding(.horizontal, 40)
+//                            .background(Color.black.opacity(0.3))
+//                            .clipShape(RoundedRectangle(cornerRadius: 20))
+//                    }
+//                    .offset(y: -300)
                     
                     Button(action:{
                         overlaySettings.overlaysVisible.toggle()
@@ -72,7 +72,7 @@ struct MapContainerView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                     }
-                    .offset(y: -300)
+                    .offset(y: -400)
                     
                     Button(action:{
                         DispatchQueue.global().async {
@@ -83,8 +83,10 @@ struct MapContainerView: View {
                                 
                             }
                         }
-                    }) {
-                        Text("Get Eskom Data")
+                    })
+                    
+                    {
+                        Text("")
                     }
                     .offset(y: -300)
                     
