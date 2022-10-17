@@ -23,18 +23,24 @@ struct StatusViewModel {
 }
 
 
-struct ScheduleViewModel {
-    let apiClient: EskomSeAPIClient
-    let stage: Int
+class ScheduleViewModel {
     
-    func getStatus () async -> String {
+    let apiClient: EskomSeAPIClient
+    var stage: Int = 0
+    
+    init(apiClient: EskomSeAPIClient) {
+        self.apiClient = apiClient
+    }
+    
+    func getStatus () async -> Int {
         let result = try? await apiClient.getStatus()
         
         if let response = result?.data {
-            return "Stage \(response.status.eskom.stage)"
+            self.stage = Int(response.status.eskom.stage)!
+            return stage
         }
         
-        return "Not set"
+        return 0
     }
     
     func getSchedule(areaID: String) async -> LoadsheddingSlot {
@@ -59,7 +65,7 @@ struct ScheduleViewModel {
             }
         }
         
-        let slot = LoadsheddingSlot (avatar: "house", level: "babla", area: areaInfo.info.name, times: times)
+        let slot = LoadsheddingSlot (avatar: "house", level: "Stage \(stage)", area: areaInfo.info.name, times: times)
         return slot
     }
     

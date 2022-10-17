@@ -21,9 +21,9 @@ struct MapContainerView: View {
     
     @State var selectedLandmark: Landmark? = nil
     @StateObject var overlaySettings = MapLayerSettings()
-    let scheduleVM: ScheduleViewModel
+    var scheduleVM: ScheduleViewModel
     
-    @State var status = "Stage 2"
+    @State var status = 0
     //bronson
     @State private var showModel = false
     
@@ -60,6 +60,12 @@ struct MapContainerView: View {
                 }.padding(.top, 200)
                 ModalView(slot: schedule, isShowing: $showModel)
             }
+            .onAppear {
+                Task {
+                    let stageDetail = await scheduleVM.getStatus()
+                    status = stageDetail
+                }
+            }
             .onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { notification in
                 
                 if let ward = notification.userInfo?["publishWard"] as? Ward {
@@ -74,7 +80,7 @@ struct MapContainerView: View {
             })
         }
         .environmentObject(overlaySettings)
-        .navigationTitle(status).font(.title).background(.ultraThinMaterial)
+        .navigationTitle("Stage \(status)").font(.title).background(.ultraThinMaterial)
         .toolbar {
             ToolbarItem(placement:
                     .navigationBarTrailing) {
@@ -118,6 +124,6 @@ struct MapContainerView: View {
 
 struct OutageMapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient, stage: 2) )
+        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient) )
     }
 }

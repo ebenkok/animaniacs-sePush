@@ -22,7 +22,7 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     VStack(spacing: 5) {
-                        NavigationLink(destination: MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient, stage: 2)), isActive: $isShowingDetailView) { EmptyView() }
+                        NavigationLink(destination: MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient)), isActive: $isShowingDetailView) { EmptyView() }
                         
                         Button("Show Map") {
                             isShowingDetailView = true
