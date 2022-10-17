@@ -1,5 +1,11 @@
 # BlackMap
-## An app to display the current outages on a map with some functionality to see loadshedding when setting the time.
+
+ An app to map the wards in the country to an EskomSePushID. BlackMap loads wards in the country from an included geoJSON file. Zones are overlayed onto the map and are interactive. Tapping on a zone highlights the zone, retrieves the EskomSePushID for the GPS Coordinates and retrievs the closest EskomSePushID via the API.
+
+Each Ward or polygon has a unique ID in the geoJson dataset. Once the EskomSePushID has been retrieved a mapping is created between the EskomSePushID and the Polygon ID. This will allow for users to obtain the schedule for a Ward.
+
+The geoJSON dataset is retrieved from https://gadm.org.
+
 
 
 ### Setup
