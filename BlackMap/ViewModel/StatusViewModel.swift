@@ -25,6 +25,7 @@ struct StatusViewModel {
 
 struct ScheduleViewModel {
     let apiClient: EskomSeAPIClient
+    let stage: Int
     
     func getStatus () async -> String {
         let result = try? await apiClient.getStatus()
@@ -36,15 +37,30 @@ struct ScheduleViewModel {
         return "Not set"
     }
     
-    func getSchedule(areaID: String) async -> String {
+    func getSchedule(areaID: String) async -> LoadsheddingSlot {
         let result = try? await apiClient.getAreaInformation(areaId: areaID, testEvent: .current)
         
         if let response = result?.data {
-            return "working"
+            return makeSlot(areaInfo: response)
         }
         
+        return LoadsheddingSlot (avatar: "house", level: "babla", area: "None", times: [Times(timeSlot: "nothing", avatar: "error", warning: "Not found")])
         
-        return "not parsed"
+    }
+        
+    
+    private func makeSlot(areaInfo: AreaInformationResponse) -> LoadsheddingSlot {
+        var times = [Times]()
+        if let currentDay = areaInfo.schedule.days.first {
+            
+            for time in currentDay.stages[stage-1] {
+                let slot = Times(timeSlot: time, avatar: "lock.slash", warning: "Power Outages")
+                times.append(slot)
+            }
+        }
+        
+        let slot = LoadsheddingSlot (avatar: "house", level: "babla", area: areaInfo.info.name, times: times)
+        return slot
     }
     
 }

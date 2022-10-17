@@ -69,7 +69,7 @@ struct ModelView: View {
                             Text("Power on")
                                 .foregroundColor(.white)
                                 .padding(.vertical, 20)
-                                .padding(.horizontal, 130)
+                                .padding(.horizontal, 110)
                                 .background(Color.green.opacity(30))
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                             
@@ -142,6 +142,6 @@ struct ModelView: View {
 
 struct ModelView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
+        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient, stage: 2))
     }
 }

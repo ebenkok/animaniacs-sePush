@@ -101,6 +101,7 @@ struct MapContainerView: View {
             }.onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { _ in
                 Task {
                     let result = await scheduleVM.getSchedule(areaID: selectedWard.ward.eskomSePushID)
+                    
                 }
                 
                 showModel = true
@@ -129,6 +130,6 @@ struct MapContainerView: View {
 
 struct OutageMapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
+        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient, stage: 2) )
     }
 }
