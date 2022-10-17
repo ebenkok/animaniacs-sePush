@@ -23,14 +23,11 @@ struct ContentView: View {
     var body: some View {
         
         TabView{
-            MapContainerView(vm: ScheduleViewModel.init(apiClient: Dependencies.shared.eskomSeAPIClient, stage: 2))
+            MapContainerView(vm: ScheduleViewModel.init(apiClient: Dependencies.shared.eskomSeAPIClient))
                 .tabItem{
                     Image(systemName: "map")
                     Text("Map")
                 }
-                .navigationTitle(status).font(.title).background(.ultraThinMaterial)
-                .toolbar {
-                    
                     
                     
                     ScrollView{
@@ -62,16 +59,7 @@ struct ContentView: View {
                     
                     
                 }
-            
-            
-            
-            
-            
-            
-        }
-        
-        
-        
+
         
         //        ZStack {
         //            NavigationView {

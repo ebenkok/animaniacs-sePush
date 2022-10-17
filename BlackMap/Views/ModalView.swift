@@ -126,6 +126,6 @@ struct ModalView: View {
 
 struct ModelView_Previews: PreviewProvider {
     static var previews: some View {
-        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient, stage: 2))
+        MapContainerView(vm: ScheduleViewModel(apiClient: Dependencies.shared.eskomSeAPIClient))
     }
 }
