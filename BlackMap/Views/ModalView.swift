@@ -14,6 +14,8 @@ struct ModalView: View {
     @Binding var isShowing: Bool
     @State private var isDragging = false
     
+    @State private var isLoading = true
+    
     @State private var curHeight: CGFloat = 400
     let minHeight: CGFloat = 400
     let maxHeight: CGFloat = 700
@@ -73,8 +75,22 @@ struct ModalView: View {
                 ScrollView {
                     VStack {
                         StagesView(slot: slot)
+                        
                     }
                 }
+//                if isLoading {
+//                    ZStack{
+//                        Color(.systemBackground)
+//                            .ignoresSafeArea()
+//                        ProgressView()
+//                            .progressViewStyle(CircularProgressViewStyle(tint: .black))
+//                            .scaleEffect(2)
+//                    }
+//                  
+//                }
+                
+                
+                
             }
             .frame(maxHeight: .infinity)
             .padding(.bottom, 35)
@@ -95,6 +111,9 @@ struct ModalView: View {
         .onDisappear{ curHeight = minHeight }
     }
     
+      
+        
+        
     @State private var prevDragTranslation = CGSize.zero
     
     var dragGesture: some Gesture {

@@ -162,6 +162,7 @@ struct MapContainerView: View {
                         
                     }
                 }.padding(.horizontal)
+                    .padding(.vertical, 5)
             })
             .onAppear {
                 Task {
