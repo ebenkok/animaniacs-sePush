@@ -16,7 +16,7 @@ enum Provinces: String {
     case EasternCape = "EasternCape"
     case KwazuluNatal = "KwaZuluNatal"
     case NorthWest = "NorthWest"
-    case NothernCape = "NorthernCape"
+    case NorthernCape = "NorthernCape"
     case Mpumalanga = "Mpumalanga"
 }
 

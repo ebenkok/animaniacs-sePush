@@ -34,7 +34,7 @@
 		F6CA9DD028F84AA9003ECD03 /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */; };
 		F6D8B35128FAC40200825434 /* Polygon+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D8B35028FAC40200825434 /* Polygon+extension.swift */; };
 		F6D8B35328FB10D200825434 /* EasternCape.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35228FB10D200825434 /* EasternCape.geojson */; };
-		F6D8B35528FB154500825434 /* Freestate.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35428FB154500825434 /* Freestate.geojson */; };
+		F6D8B35528FB154500825434 /* FreeState.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35428FB154500825434 /* FreeState.geojson */; };
 		F6D8B35728FB16D800825434 /* Gauteng.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35628FB16D800825434 /* Gauteng.geojson */; };
 		F6D8B35F28FB18F600825434 /* Limpopo.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35828FB18F600825434 /* Limpopo.geojson */; };
 		F6D8B36028FB18F600825434 /* NorthernCape.geojson in Resources */ = {isa = PBXBuildFile; fileRef = F6D8B35928FB18F600825434 /* NorthernCape.geojson */; };
@@ -99,7 +99,7 @@
 		F6CA9DCF28F84AA9003ECD03 /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
 		F6D8B35028FAC40200825434 /* Polygon+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Polygon+extension.swift"; sourceTree = "<group>"; };
 		F6D8B35228FB10D200825434 /* EasternCape.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EasternCape.geojson; sourceTree = "<group>"; };
-		F6D8B35428FB154500825434 /* Freestate.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Freestate.geojson; sourceTree = "<group>"; };
+		F6D8B35428FB154500825434 /* FreeState.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FreeState.geojson; sourceTree = "<group>"; };
 		F6D8B35628FB16D800825434 /* Gauteng.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gauteng.geojson; sourceTree = "<group>"; };
 		F6D8B35828FB18F600825434 /* Limpopo.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Limpopo.geojson; sourceTree = "<group>"; };
 		F6D8B35928FB18F600825434 /* NorthernCape.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NorthernCape.geojson; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				F6D8B35928FB18F600825434 /* NorthernCape.geojson */,
 				F6D8B35E28FB18F600825434 /* NorthWest.geojson */,
 				F6D8B35A28FB18F600825434 /* WesternCape.geojson */,
-				F6D8B35428FB154500825434 /* Freestate.geojson */,
+				F6D8B35428FB154500825434 /* FreeState.geojson */,
 				F6D8B35228FB10D200825434 /* EasternCape.geojson */,
 				F69216F628FAAB3A000F0E78 /* gadm41_ZAF_4.json */,
 				F69216F128F9A764000F0E78 /* SampleGeoJSON.geojson */,
@@ -385,7 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D8B35328FB10D200825434 /* EasternCape.geojson in Resources */,
-				F6D8B35528FB154500825434 /* Freestate.geojson in Resources */,
+				F6D8B35528FB154500825434 /* FreeState.geojson in Resources */,
 				F6D8B36328FB18F600825434 /* KwaZuluNatal.geojson in Resources */,
 				F6D8B35F28FB18F600825434 /* Limpopo.geojson in Resources */,
 				F6D8B36728FC30B900825434 /* WardMapping.json in Resources */,

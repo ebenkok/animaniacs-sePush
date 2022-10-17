@@ -72,11 +72,83 @@ struct MapContainerView: View {
                             }
                             DispatchQueue.global().async {
                                 if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .Limpopo)
+                                }
+                            }
+                        }, label: {
+                            Label("Limpopo", systemImage: "bird.fill")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .FreeState)
+                                }
+                            }
+                        }, label: {
+                            Label("FreeState", systemImage: "camera.macro.circle.fill")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
                                     jsonProvider.loadGeoJson(province: .WesternCape)
                                 }
                             }
                         }, label: {
                             Label("Western Cape", systemImage: "water.waves")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .NorthWest)
+                                }
+                            }
+                        }, label: {
+                            Label("NorthWest", systemImage: "tortoise.fill")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .EasternCape)
+                                }
+                            }
+                        }, label: {
+                            Label("Eastern Cape", systemImage: "lizard.fill")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .KwazuluNatal)
+                                }
+                            }
+                        }, label: {
+                            Label("KwaZulu Natal", systemImage: "fish.fill")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .NorthernCape)
+                                }
+                            }
+                        }, label: {
+                            Label("Northern Cape", systemImage: "pawprint.circle.fill")
                         })
                         
                         Button(action:{
