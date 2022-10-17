@@ -16,13 +16,16 @@ struct StagesView: View {
                     .resizable()
                     .aspectRatio( contentMode: .fit)
                     .frame(width: 30)
+                    .padding(.horizontal, 10)
+                    .offset(x: 5)
                     
                 
                 VStack(alignment: .leading, spacing: 10){
-                    Text( slot.level)
+                    Text(slot.level)
                         .bold()
                         .font(.system(size: 20))
                     Text(slot.area)
+                        .font(.system(size: 20))
                         
                 }
                 Spacer()
@@ -32,9 +35,9 @@ struct StagesView: View {
             .padding(.vertical, 10)
             .background(Color.black.opacity(0.015))
             .cornerRadius(20)
-            .padding(.horizontal, 20)
-            .padding(.top, 20)
-            .padding(.horizontal)
+            .padding(.horizontal, 30)
+            .padding(.top, 5)
+//            .padding(.horizontal)
             .frame(maxWidth: .infinity, alignment: .leading)
             
             
@@ -44,7 +47,7 @@ struct StagesView: View {
                     .background(Color.black.opacity(0.015))
                     .cornerRadius(20)
                     .padding(.horizontal, 30)
-                    .padding(.top, 10)
+                    .padding(.top, 5)
             }
         }
     }

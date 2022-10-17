@@ -25,6 +25,7 @@ struct TimesView: View {
                     .font(.system(size: 20))
                 Text(time.warning)
                     .foregroundColor(.red)
+                    .font(.system(size: 20))
             }
             Spacer()
             

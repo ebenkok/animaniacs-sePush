@@ -36,7 +36,7 @@ struct MapContainerView: View {
         
         //Use this if NavigationBarTitle is with displayMode = .inline
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
-        UINavigationBar.appearance().backgroundColor = .lightGray
+//        UINavigationBar.appearance().backgroundColor = .white
 
     }
     
@@ -60,19 +60,19 @@ struct MapContainerView: View {
 //                    }
 //                    .offset(y: -300)
                     
-                    Button(action:{
-                        overlaySettings.overlaysVisible.toggle()
-                        DispatchQueue.global().async {
-                            if overlaySettings.overlaysVisible {
-                                jsonProvider.loadGeoJson()
-                            }
-                        }
-                    }) {
-                        Image(systemName: overlaySettings.overlaysVisible ? "map.fill" : "map")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                    }
-                    .offset(y: -400)
+//                    Button(action:{
+//                        overlaySettings.overlaysVisible.toggle()
+//                        DispatchQueue.global().async {
+//                            if overlaySettings.overlaysVisible {
+//                                jsonProvider.loadGeoJson()
+//                            }
+//                        }
+//                    }) {
+//                        Image(systemName: overlaySettings.overlaysVisible ? "map.fill" : "map")
+//                            .resizable()
+//                            .frame(width: 40, height: 40)
+//                    }
+//                    .offset(y: -400)
                     
                     Button(action:{
                         DispatchQueue.global().async {
@@ -120,6 +120,35 @@ struct MapContainerView: View {
         }
         .environmentObject(overlaySettings)
         .navigationTitle(status).font(.title).background(.ultraThinMaterial)
+        .toolbar {
+            ToolbarItem(placement:
+                    .navigationBarTrailing) {
+                        Menu {
+                            
+                            Button(action:{
+                                overlaySettings.overlaysVisible.toggle()
+                                DispatchQueue.global().async {
+                                    if overlaySettings.overlaysVisible {
+                                        jsonProvider.loadGeoJson()
+                                    }
+                                }
+                            }) {
+                                Image(systemName: overlaySettings.overlaysVisible ? "map.fill" : "map")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                            }
+                            Button(action:{}, label: {
+                                Text("Johannesburg")
+                            })
+                            Button(action:{}, label: {
+                                Text("Cape Town")
+                            })
+                            
+                        }label: {
+                            Label(title: {Text("add")}, icon: {Text("Province")})
+                        }
+                    }
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
     
