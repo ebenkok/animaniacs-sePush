@@ -100,13 +100,17 @@ struct MapContainerView: View {
                     //let statusResult = try await scheduleVM.getStatus()
                     //status = statusResult
                 }
-            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { _ in
-                Task {
-                    let result = await scheduleVM.getSchedule(areaID: selectedWard.ward.eskomSePushID)
-                    
-                }
+            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { notification in
                 
-                showModel = true
+                if let ward = notification.userInfo?["publishWard"] as? Ward {
+                    print(ward)
+                    Task {
+                        let result = await scheduleVM.getSchedule(areaID: ward.eskomSePushID)
+                        
+                    }
+                    
+                    showModel = true
+                }
                 
             }
             )
