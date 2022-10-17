@@ -8,7 +8,7 @@
 import SwiftUI
 import shared
 
-struct ModelView: View {
+struct ModalView: View {
     
     var slot: LoadsheddingSlot
     @Binding var isShowing: Bool
@@ -58,8 +58,9 @@ struct ModelView: View {
             .background(Color.white.opacity(0.000001))
             .gesture(dragGesture)
             VStack(alignment: .center){
-                Text("Mayersdal")
+                Text(slot.area)
                     .font(.title)
+                    .autocapitalization(UITextAutocapitalizationType.words)
                 
                 Button(action:{}) {
                     Text("Power on")

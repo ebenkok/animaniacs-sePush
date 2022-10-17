@@ -63,7 +63,7 @@ struct MapContainerView: View {
                     }
                     .offset(y: -400)
                 }.padding(.top, 200)
-                ModelView(slot: schedule, isShowing: $showModel)
+                ModalView(slot: schedule, isShowing: $showModel)
             }
             .onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { notification in
                 
@@ -78,7 +78,7 @@ struct MapContainerView: View {
                 }
             }
             )
-            ModelView(slot: schedule, isShowing: $showModel)
+            ModalView(slot: schedule, isShowing: $showModel)
         
             
         }
