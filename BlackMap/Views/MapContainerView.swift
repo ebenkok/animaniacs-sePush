@@ -48,12 +48,12 @@ struct MapContainerView: View {
                 ModalView(slot: schedule, isShowing: $showModel)
             }.safeAreaInset(edge: .top, content: {
                 HStack (alignment: .center){
-                    Text("Stage \(status)")
-                        .font(.title)
+                    Text("Loadshedding: Stage \(status)")
+                        .font(.subheadline)
+                        .foregroundColor(status > 0 ? .red : .black)
                         
                     Spacer()
                     Menu {
-                        
                         Button(action:{
                             if !overlaySettings.overlaysVisible {
                                 overlaySettings.overlaysVisible.toggle()
@@ -76,8 +76,6 @@ struct MapContainerView: View {
                                 }
                             }
                         }, label: {
-                            
-                            
                             Label("Western Cape", systemImage: "water.waves")
                         })
                         
@@ -87,11 +85,11 @@ struct MapContainerView: View {
                             Label("None", systemImage: "xmark.circle")
                         })
                         
-                    }label: {
-                        Label("", systemImage: "square.3.layers.3d")
+                    } label: {
+                        Image(systemName: "square.3.layers.3d").resizable().frame(width: 20, height: 20)
+                        
                     }
-                }
-                
+                }.padding(.horizontal)
             })
             .onAppear {
                 Task {
