@@ -22,11 +22,8 @@ struct SliderView: View {
                     Spacer()
                     Text(
                     String(format: "+%.2f", sliderValue)
-                    )
-                    
+                    )   
                 }
-                
-                
             }.padding()
                 .background(Color.white.opacity(0.8))
                 .cornerRadius(20)

@@ -57,39 +57,23 @@ struct ModelView: View {
             .frame(maxWidth: .infinity)
             .background(Color.white.opacity(0.000001))
             .gesture(dragGesture)
-            
-            
-            
-               
-                    VStack(alignment: .center){
-                        
-                        Text("Mayersdal")
-                            .font(.title)
-                        
-                        Button(action:{}) {
-                            Text("Power on")
-                                .foregroundColor(.white)
-                                .padding(.vertical, 20)
-                                .padding(.horizontal, 110)
-                                .background(Color.green.opacity(30))
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                            
-                        }
-                    
+            VStack(alignment: .center){
+                Text("Mayersdal")
+                    .font(.title)
                 
+                Button(action:{}) {
+                    Text("Power on")
+                        .foregroundColor(.white)
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 110)
+                        .background(Color.green.opacity(30))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                }
                 ScrollView {
                     VStack {
                         StagesView(slot: slot)
-                        
-                        
-                        
-                        
                     }
-                   
                 }
-                
-                
-                
             }
             .frame(maxHeight: .infinity)
             .padding(.bottom, 35)
@@ -108,8 +92,6 @@ struct ModelView: View {
         )
         .animation(isDragging ? nil : .easeInOut(duration: 0.45))
         .onDisappear{ curHeight = minHeight }
-        
-        
     }
     
     @State private var prevDragTranslation = CGSize.zero
@@ -138,7 +120,7 @@ struct ModelView: View {
                 }
             }
     }
-        
+    
 }
 
 struct ModelView_Previews: PreviewProvider {

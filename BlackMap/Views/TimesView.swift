@@ -27,8 +27,6 @@ struct TimesView: View {
                     .foregroundColor(.red)
             }
             Spacer()
-            
-            
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, alignment: .leading)

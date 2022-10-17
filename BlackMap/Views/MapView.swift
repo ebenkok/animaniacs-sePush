@@ -1,4 +1,4 @@
- //
+//
 //  MapView.swift
 //  BlackMap
 //
@@ -41,7 +41,7 @@ struct MapView: UIViewRepresentable {
         if overlaySettings.overlaysVisible {
             for item in polygons {
                 if uiView.overlays.first(where: { $0.subtitle == item.subtitle}) == nil {
-                        uiView.addOverlay(item)
+                    uiView.addOverlay(item)
                 }
             }
         }
@@ -62,12 +62,8 @@ struct MapView: UIViewRepresentable {
     
     final class Coordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelegate {
         var parent: MapView
-        
-        
         var gRecognizer = UITapGestureRecognizer()
         var coordinate = CLLocationCoordinate2D()
-        
-        
         
         init(_ control: MapView) {
             self.parent = control
@@ -90,19 +86,8 @@ struct MapView: UIViewRepresentable {
             if let polygon = overlay as? MKPolygon {
                 
                 let renderer = MKPolygonRenderer(polygon: polygon)
-                
-                //MARK: -Custom shape fillColor based on latest renderer data
-                if overlayer.shared.polygonInfo.name1 == "Gauteng" { //36, 76, 179
-                    renderer.fillColor = UIColor(red: 199/255, green: 38/255, blue: 84/255, alpha: 0.5)
-                    renderer.strokeColor = UIColor(red: 199/255, green: 38/255, blue: 40/255, alpha: 0.5)
-                }
-                
-                
-                if overlayer.shared.polygonInfo.name1 == "WesternCape" { //36, 76, 179
-                    renderer.fillColor = UIColor(red: 36/255, green: 76/255, blue: 179/255, alpha: 0.5)
-                    renderer.strokeColor = UIColor(red: 38/255, green: 36/255, blue: 179/255, alpha: 0.5)
-                }
-                
+                renderer.fillColor = UIColor(red: 36/255, green: 76/255, blue: 179/255, alpha: 0.5)
+                renderer.strokeColor = UIColor(red: 38/255, green: 36/255, blue: 179/255, alpha: 0.5)
                 renderer.lineWidth = 1.5
                 
                 return renderer
@@ -129,14 +114,12 @@ struct MapView: UIViewRepresentable {
                         let rendererPoint = renderer.point(for: mapPoint)
                         
                         if renderer.path.contains(rendererPoint) {
-                            //renderer.invalidatePath()
                             renderer.fillColor = .green
                             print("Tap inside polygon")
                             print("Polygon \(polygon.title ?? "no value") has been tapped")
                             print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
                             print("Coordinates: lon:\(coordinate.longitude), lat:\(coordinate.latitude)")
                             if let id = polygon.subtitle {
-                                //let polyIndex = self.parent.map.overlays.index{ $0 === polygon }!
                                 let ward = Ward(polygonID: id, coordinates: WardCoordinate(longitude: "\(coordinate.longitude)", latitude: "\(coordinate.latitude)"), eskomSePushID: "")
                                 Task {
                                     await parent.mapWriter.addWardItem(ward: ward)
@@ -154,24 +137,12 @@ struct MapView: UIViewRepresentable {
 
 
 class MappingWriter {
-    
     let api: EskomSeAPIClient = Dependencies.shared.eskomSeAPIClient
-    
     var zones: [Ward] = [Ward]()
-    
-    //@ObservedObject var selectedWard: MapArea
-    
     init() {
-//        guard let url = Bundle.main.url(forResource: "WardMapping", withExtension: "json") else {
-//            fatalError("unable to get geojson")
-//        }
-        
         
         let filename = "mappedData.json"
         let url = getDocumentsDirectory().appendingPathComponent(filename)
-       // let base = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-       // let pathComponent = url.appendingPathComponent(filename)
-       // let filePath = pathComponent.path
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: url.path) {
             var wardMapping = [Ward]()
@@ -189,12 +160,12 @@ class MappingWriter {
     
     func fileExists(filename: String) -> Bool {
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-            let url = NSURL(fileURLWithPath: path)
-            if let pathComponent = url.appendingPathComponent(filename) {
-                let filePath = pathComponent.path
-                let fileManager = FileManager.default
-                return fileManager.fileExists(atPath: filePath)
-            }
+        let url = NSURL(fileURLWithPath: path)
+        if let pathComponent = url.appendingPathComponent(filename) {
+            let filePath = pathComponent.path
+            let fileManager = FileManager.default
+            return fileManager.fileExists(atPath: filePath)
+        }
         return false
     }
     
@@ -227,7 +198,7 @@ class MappingWriter {
         // find all possible documents directories for this user
         let p2 = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
+        
         // just send back the first one, which ought to be the only one
         return URL(string: p2)!
     }
@@ -241,7 +212,7 @@ class MappingWriter {
         let filename = "mappedData.json"
         let url = getDocumentsDirectory().appendingPathComponent(filename)
         let base = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-
+        
         let fileURL = "file://\(url.path)"
         let theURL = URL(string: fileURL)!
         
