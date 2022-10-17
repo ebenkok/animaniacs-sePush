@@ -27,18 +27,13 @@ struct MapContainerView: View {
     //bronson
     @State private var showModel = false
     
-   // @StateObject var selectedWard = MapArea()
+    // @StateObject var selectedWard = MapArea()
     @State var schedule =  LoadsheddingSlot(avatar: "", level: "", area: "", times: [])
     
     init(vm: ScheduleViewModel) {
         scheduleVM = vm
-        //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.red]
-        
-        //Use this if NavigationBarTitle is with displayMode = .inline
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
-//        UINavigationBar.appearance().backgroundColor = .white
-
     }
     
     
@@ -76,11 +71,7 @@ struct MapContainerView: View {
                     
                     showModel = true
                 }
-            }
-            )
-            ModalView(slot: schedule, isShowing: $showModel)
-        
-            
+            })
         }
         .environmentObject(overlaySettings)
         .navigationTitle(status).font(.title).background(.ultraThinMaterial)
