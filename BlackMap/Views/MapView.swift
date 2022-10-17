@@ -130,7 +130,7 @@ struct MapView: UIViewRepresentable {
                         
                         if renderer.path.contains(rendererPoint) {
                             //renderer.invalidatePath()
-                            renderer.fillColor = .yellow
+                            renderer.fillColor = .green
                             print("Tap inside polygon")
                             print("Polygon \(polygon.title ?? "no value") has been tapped")
                             print("Polygon \(polygon.subtitle ?? "no value") has been tapped")
@@ -257,6 +257,7 @@ class MappingWriter {
     }
     
 }
+
 
 struct Ward: Codable {
     let polygonID: String

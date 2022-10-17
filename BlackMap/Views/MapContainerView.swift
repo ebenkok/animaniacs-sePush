@@ -47,7 +47,7 @@ struct MapContainerView: View {
             ZStack {
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.vertical)
-                //SliderView()
+                //                SliderView()
                 HStack {
                     Button(action:{ showModel = true}) {
                         Text("click me")
@@ -89,9 +89,9 @@ struct MapContainerView: View {
                     .offset(y: -300)
                     
                 }.padding(.top, 200)
-                if (selectedWard.ward.eskomSePushID != "") {
+//                if (selectedWard.ward.eskomSePushID != "") {
                     ModelView(isShowing: $showModel)
-                }
+//                }
                 
             }.onAppear {
                 Task {
@@ -102,8 +102,14 @@ struct MapContainerView: View {
                 Task {
                     let result = await scheduleVM.getSchedule(areaID: selectedWard.ward.eskomSePushID)
                 }
-                ModelView(isShowing: $showModel)
-            })
+                
+                showModel = true
+                
+            }
+            )
+            ModelView(isShowing: $showModel)
+        
+            
         }
         .environmentObject(overlaySettings)
         .navigationTitle(status).font(.title).background(.ultraThinMaterial)
