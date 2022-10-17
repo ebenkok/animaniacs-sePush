@@ -212,6 +212,10 @@ class MappingWriter {
                 publishWard = newWard
                 addAndPersist(ward: newWard)
             }
+        } else {
+            if let selectedWard = zones.first(where: { $0.polygonID == ward.polygonID }) {
+                publishWard = selectedWard
+            }
         }
         
         let notification = Notification(name: Notification.Name(rawValue: "MapArea") , userInfo: ["publishWard": publishWard])

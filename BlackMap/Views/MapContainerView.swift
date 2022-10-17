@@ -28,6 +28,7 @@ struct MapContainerView: View {
     @State private var showModel = false
     
     @StateObject var selectedWard = MapArea()
+    @State var schedule =  LoadsheddingSlot(avatar: "", level: "", area: "", times: [])
     
     init(vm: ScheduleViewModel) {
         scheduleVM = vm
@@ -92,7 +93,7 @@ struct MapContainerView: View {
                     
                 }.padding(.top, 200)
 //                if (selectedWard.ward.eskomSePushID != "") {
-                    ModelView(isShowing: $showModel)
+                ModelView(slot: schedule, isShowing: $showModel)
 //                }
                 
             }.onAppear {
@@ -106,7 +107,7 @@ struct MapContainerView: View {
                     print(ward)
                     Task {
                         let result = await scheduleVM.getSchedule(areaID: ward.eskomSePushID)
-                        
+                        schedule = result
                     }
                     
                     showModel = true
@@ -114,7 +115,7 @@ struct MapContainerView: View {
                 
             }
             )
-            ModelView(isShowing: $showModel)
+            ModelView(slot: schedule, isShowing: $showModel)
         
             
         }
