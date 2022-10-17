@@ -62,8 +62,14 @@ struct Times {
     let warning : String
 }
 
+class ObservedLoadsheddingSlot: ObservableObject {
+    @Published var slot =  LoadsheddingSlot(avatar: "", level: "", area: "", times: [])
+}
+
 struct StagesView_Previews: PreviewProvider {
     static var previews: some View {
         StagesView(slot: LoadsheddingSlot(avatar: "house", level: "Stage 3", area: "Mayersdal", times: [Times(timeSlot: "11:00-12:00", avatar: "lock.slash", warning: "power outages")]))
     }
 }
+
+

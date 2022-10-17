@@ -10,6 +10,7 @@ import shared
 
 struct ModelView: View {
     
+    var slot: LoadsheddingSlot
     @Binding var isShowing: Bool
     @State private var isDragging = false
     
@@ -78,7 +79,7 @@ struct ModelView: View {
                 
                 ScrollView {
                     VStack {
-                        StagesView(slot: LoadsheddingSlot(avatar: "house", level: "Stage 3", area: "Mayersdal", times: [Times(timeSlot: "12:00 - 14:00", avatar: "lock.slash", warning: "Power Outages"), Times(timeSlot: "15:00 - 17:00", avatar: "lock.slash", warning: "Power Outages")]))
+                        StagesView(slot: slot)
                         
                         
                         
