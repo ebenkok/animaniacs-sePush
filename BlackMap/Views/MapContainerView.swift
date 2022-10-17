@@ -87,26 +87,40 @@ struct MapContainerView: View {
                         Menu {
                             
                             Button(action:{
-                                overlaySettings.overlaysVisible.toggle()
+                                if !overlaySettings.overlaysVisible {
+                                    overlaySettings.overlaysVisible.toggle()
+                                }
                                 DispatchQueue.global().async {
                                     if overlaySettings.overlaysVisible {
                                         jsonProvider.loadGeoJson(province: .Gauteng)
                                     }
                                 }
-                            }) {
-                                Image(systemName: overlaySettings.overlaysVisible ? "map.fill" : "map")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                            }
-                            Button(action:{}, label: {
-                                Text("Johannesburg")
+                            }, label: {
+                                Label("Gauteng", systemImage: "building.2.crop.circle.fill")
                             })
-                            Button(action:{}, label: {
-                                Text("Cape Town")
+                            Button(action:{
+                                if !overlaySettings.overlaysVisible {
+                                    overlaySettings.overlaysVisible.toggle()
+                                }
+                                DispatchQueue.global().async {
+                                    if overlaySettings.overlaysVisible {
+                                        jsonProvider.loadGeoJson(province: .WesternCape)
+                                    }
+                                }
+                            }, label: {
+                                
+                                
+                                Label("Western Cape", systemImage: "water.waves")
+                            })
+                            
+                            Button(action:{
+                                overlaySettings.overlaysVisible.toggle()
+                            }, label: {
+                                Label("None", systemImage: "xmark.circle")
                             })
                             
                         }label: {
-                            Label(title: {Text("add")}, icon: {Text("Province")})
+                            Label("Layers", systemImage: "square.3.layers.3d")
                         }
                     }
         }
