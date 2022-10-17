@@ -38,13 +38,61 @@ struct MapContainerView: View {
     
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
+            
             ZStack {
+               
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.bottom)
                 ModalView(slot: schedule, isShowing: $showModel)
-            }
+            }.safeAreaInset(edge: .top, content: {
+                HStack (alignment: .center){
+                    Text("Stage \(status)")
+                        .font(.title)
+                        
+                    Spacer()
+                    Menu {
+                        
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .Gauteng)
+                                }
+                            }
+                        }, label: {
+                            Label("Gauteng", systemImage: "building.2.crop.circle.fill")
+                        })
+                        Button(action:{
+                            if !overlaySettings.overlaysVisible {
+                                overlaySettings.overlaysVisible.toggle()
+                            }
+                            DispatchQueue.global().async {
+                                if overlaySettings.overlaysVisible {
+                                    jsonProvider.loadGeoJson(province: .WesternCape)
+                                }
+                            }
+                        }, label: {
+                            
+                            
+                            Label("Western Cape", systemImage: "water.waves")
+                        })
+                        
+                        Button(action:{
+                            overlaySettings.overlaysVisible.toggle()
+                        }, label: {
+                            Label("None", systemImage: "xmark.circle")
+                        })
+                        
+                    }label: {
+                        Label("", systemImage: "square.3.layers.3d")
+                    }
+                }
+                
+            })
             .onAppear {
                 Task {
                     let stageDetail = await scheduleVM.getStatus()
