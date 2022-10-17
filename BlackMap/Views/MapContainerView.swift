@@ -48,7 +48,7 @@ struct MapContainerView: View {
                         overlaySettings.overlaysVisible.toggle()
                         DispatchQueue.global().async {
                             if overlaySettings.overlaysVisible {
-                                jsonProvider.loadGeoJson()
+                                jsonProvider.loadGeoJson(province: .Gauteng)
                             }
                         }
                     }) {
@@ -90,7 +90,7 @@ struct MapContainerView: View {
                                 overlaySettings.overlaysVisible.toggle()
                                 DispatchQueue.global().async {
                                     if overlaySettings.overlaysVisible {
-                                        jsonProvider.loadGeoJson()
+                                        jsonProvider.loadGeoJson(province: .Gauteng)
                                     }
                                 }
                             }) {

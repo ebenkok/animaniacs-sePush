@@ -8,17 +8,32 @@
 import Foundation
 import MapKit
 
+enum Provinces: String {
+    case Gauteng = "Gauteng"
+    case Limpopo = "Limpopo"
+    case WesternCape = "WesternCape"
+    case FreeState = "FreeState"
+    case EasternCape = "EasternCape"
+    case KwazuluNatal = "KwaZuluNatal"
+    case NorthWest = "NorthWest"
+    case NothernCape = "NorthernCape"
+    case Mpumalanga = "Mpumalanga"
+}
+
+
 class GeoJSONHelper: ObservableObject {
+    
+    
     
     @Published var overlays = [MKOverlay]()
     
     var tempOverlay = [MKOverlay]()
     
-    func loadGeoJson() {
+    func loadGeoJson(province: Provinces) {
         tempOverlay.removeAll()
         print(MapOverlays.shared.returnOverlayList().count)
         MapOverlays.shared.clearAll()
-        guard let url = Bundle.main.url(forResource: "Gauteng", withExtension: "geojson") else {
+        guard let url = Bundle.main.url(forResource: province.rawValue, withExtension: "geojson") else {
             fatalError("unable to get geojson")
         }
         

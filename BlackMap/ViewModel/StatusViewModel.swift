@@ -51,7 +51,6 @@ class ScheduleViewModel {
         }
         
         return LoadsheddingSlot (avatar: "house", level: "babla", area: "None", times: [Times(timeSlot: "nothing", avatar: "error", warning: "Not found")])
-        
     }
         
     
