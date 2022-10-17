@@ -27,7 +27,7 @@ struct MapContainerView: View {
     //bronson
     @State private var showModel = false
     
-    @StateObject var selectedWard = MapArea()
+   // @StateObject var selectedWard = MapArea()
     @State var schedule =  LoadsheddingSlot(avatar: "", level: "", area: "", times: [])
     
     init(vm: ScheduleViewModel) {
@@ -48,19 +48,7 @@ struct MapContainerView: View {
             ZStack {
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
                     .edgesIgnoringSafeArea(.vertical)
-                //                SliderView()
                 VStack {
-//                    Button(action:{ showModel = true}) {
-//                        Text("click me")
-//                            .font(.system(size: 40, weight: .heavy, design: .rounded))
-//                            .foregroundColor(.white)
-//                            .padding(.vertical, 20)
-//                            .padding(.horizontal, 40)
-//                            .background(Color.black.opacity(0.3))
-//                            .clipShape(RoundedRectangle(cornerRadius: 20))
-//                    }
-//                    .offset(y: -300)
-                    
                     Button(action:{
                         overlaySettings.overlaysVisible.toggle()
                         DispatchQueue.global().async {
@@ -74,34 +62,10 @@ struct MapContainerView: View {
                             .frame(width: 40, height: 40)
                     }
                     .offset(y: -400)
-                    
-                    Button(action:{
-                        DispatchQueue.global().async {
-                            Task {
-                                // BRONSON put your looked up value in here
-                                // let result = await scheduleVM.getSchedule(areaID: "eskde-10-fourwaysext10cityofjohannesburggauteng")
-                                let result = await scheduleVM.getSchedule(areaID: selectedWard.ward.eskomSePushID)
-                                
-                            }
-                        }
-                    })
-                    
-                    {
-                        Text("")
-                    }
-                    .offset(y: -300)
-                    
                 }.padding(.top, 200)
-//                if (selectedWard.ward.eskomSePushID != "") {
                 ModelView(slot: schedule, isShowing: $showModel)
-//                }
-                
-            }.onAppear {
-                Task {
-                    //let statusResult = try await scheduleVM.getStatus()
-                    //status = statusResult
-                }
-            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { notification in
+            }
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("MapArea")), perform: { notification in
                 
                 if let ward = notification.userInfo?["publishWard"] as? Ward {
                     print(ward)
@@ -112,7 +76,6 @@ struct MapContainerView: View {
                     
                     showModel = true
                 }
-                
             }
             )
             ModelView(slot: schedule, isShowing: $showModel)
@@ -132,8 +95,6 @@ struct MapContainerView: View {
         }
     }
 }
-
-
 
 struct OutageMapView_Previews: PreviewProvider {
     static var previews: some View {

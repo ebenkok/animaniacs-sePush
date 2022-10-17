@@ -11,9 +11,6 @@ import MapKit
 class MapLocationDelegate: NSObject,ObservableObject,CLLocationManagerDelegate{
     
     @Published var pins : [MapPin] = []
-    //@Published var publishedError: Error? = nil
-    // Checking authorization status...
-    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         if manager.authorizationStatus == .authorizedWhenInUse{
