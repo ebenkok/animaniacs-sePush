@@ -42,22 +42,7 @@ struct MapContainerView: View {
             //CHANGED ZSTACK TO AN VSTACK FOR THE SLIDE ANIMATION
             ZStack {
                 MapView(landmarks: $landmarks, selectedLandmark: $selectedLandmark, polygons: $jsonProvider.overlays)
-                    .edgesIgnoringSafeArea(.vertical)
-                VStack {
-                    Button(action:{
-                        overlaySettings.overlaysVisible.toggle()
-                        DispatchQueue.global().async {
-                            if overlaySettings.overlaysVisible {
-                                jsonProvider.loadGeoJson(province: .Gauteng)
-                            }
-                        }
-                    }) {
-                        Image(systemName: overlaySettings.overlaysVisible ? "map.fill" : "map")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                    }
-                    .offset(y: -400)
-                }.padding(.top, 200)
+                    .edgesIgnoringSafeArea(.bottom)
                 ModalView(slot: schedule, isShowing: $showModel)
             }
             .onAppear {
@@ -74,7 +59,6 @@ struct MapContainerView: View {
                         let result = await scheduleVM.getSchedule(areaID: ward.eskomSePushID)
                         schedule = result
                     }
-                    
                     showModel = true
                 }
             })
