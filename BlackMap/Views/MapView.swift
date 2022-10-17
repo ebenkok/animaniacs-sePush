@@ -44,7 +44,18 @@ struct MapView: UIViewRepresentable {
                     uiView.addOverlay(item)
                 }
             }
+            zoomForAllOverlays(uiView)
         }
+    }
+    
+    func zoomForAllOverlays(_ uiView: MKMapView) {
+        guard let initial = uiView.overlays.first?.boundingMapRect else { return }
+
+        let mapRect = uiView.overlays
+            .dropFirst()
+            .reduce(initial) { $0.union($1.boundingMapRect) }
+
+        uiView.setVisibleMapRect(mapRect, edgePadding: .init(top: 5, left: 5, bottom: 5, right: 5), animated: true)
     }
     
     private func updateAnnotations(from mapView: MKMapView) {
